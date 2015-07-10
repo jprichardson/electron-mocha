@@ -1,7 +1,9 @@
 var app = require('app')
-var window = require('electron-window')
+var fs = require('fs-extra')
 var ipc = require('ipc')
 var path = require('path')
+var os = require('os')
+var window = require('electron-window')
 var args = require('./args')
 var mocha = require('./mocha')
 
@@ -12,6 +14,9 @@ var mocha = require('./mocha')
 
 var opts = args.parse(process.argv)
 
+var browserDataPath = path.join(os.tmpdir(), 'electron-mocha-' + Date.now().toString())
+app.setPath('userData', browserDataPath)
+
 app.on('ready', function () {
   if (!opts.renderer) {
     mocha.run(opts, exit)
@@ -19,7 +24,7 @@ app.on('ready', function () {
     var win = window.createWindow({ height: 700, width: 1200 })
     // undocumented call in electron-window
     win._loadUrlWithArgs(path.resolve('./renderer/index.html'), opts, Function())
-    //win.showUrl(path.resolve('./renderer/index.html'))
+    // win.showUrl(path.resolve('./renderer/index.html'), opts)
     ipc.on('mocha-done', function (event, code) {
       console.log('done')
       exit(code)
@@ -28,8 +33,12 @@ app.on('ready', function () {
 })
 
 function exit (code) {
-  // process.exit() does not work properly
-  // app.quit() does not set code
-  // bug in Electron, see issue: https://github.com/atom/electron/issues/1983
-  app.quit(code)
+  fs.remove(browserDataPath, function (err) {
+    if (err) console.error(err)
+    // process.exit() does not work properly
+    // app.quit() does not set code
+    // bug in Electron, see issue: https://github.com/atom/electron/issues/1983
+    app.quit(code)
+  })
 }
+
