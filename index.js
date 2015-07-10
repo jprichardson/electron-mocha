@@ -12,6 +12,12 @@ var mocha = require('./mocha')
 // app.commandLine.appendSwitch('v', -1)
 // app.commandLine.appendSwitch('vmodule', 'console=0')
 
+process.on('uncaughtException', function (err) {
+  console.error(err)
+  console.error(err.stack)
+  exit(1)
+})
+
 var opts = args.parse(process.argv)
 
 var browserDataPath = path.join(os.tmpdir(), 'electron-mocha-' + Date.now().toString())
