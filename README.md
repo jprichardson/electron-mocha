@@ -77,7 +77,7 @@ in Electron! So you don't need to mock those libraries out anymore and can actua
 
 If you run:
 
-  electron-mocha --renderer ./tests
+    electron-mocha --renderer ./tests
 
 This runs the tests in the [`renderer`](https://github.com/atom/electron/blob/master/docs/tutorial/quick-start.md#main-process).
 Yes, this means that you have access to the entirety of the DOM, web storage, etc. This is because it's actually
