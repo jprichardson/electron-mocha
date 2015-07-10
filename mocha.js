@@ -24,13 +24,12 @@ function createFromArgs (args) {
 
   mocha.useColors(true)
 
-  var files = args.files
-
   // default files to test/*.js
+  var files = []
   var extensions = ['js']
-  if (!files.length) files.push('test')
-  files.forEach(function (arg) {
-    return utils.lookupFiles(arg, extensions, args.recursive)
+  if (!args.files.length) args.files.push('test')
+  args.files.forEach(function (arg) {
+    files = files.concat(utils.lookupFiles(arg, extensions, args.recursive))
   })
 
   files = files.map(function (f){
@@ -41,11 +40,7 @@ function createFromArgs (args) {
     files.sort()
   }
 
-  files.forEach(function (f) {
-    mocha.addFile(f)
-  })
-
-  //mocha.files = files
+  mocha.files = files
 
   return mocha
 }
