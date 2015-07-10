@@ -1,6 +1,5 @@
 var remote = require('remote')
 var remoteConsole = remote.require('console')
-var util = require('util')
 
 // we have to do this so that mocha output doesn't look like shit
 console.log = function () {

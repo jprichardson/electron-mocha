@@ -1,10 +1,12 @@
 var assert = require('assert')
 
+/* global describe it */
+
 describe('describe: test 2', function () {
   it('it: test 2', function () {
-    localStorage.setItem('blah', 'hello storage!!')
+    window.localStorage.setItem('blah', 'hello storage!!')
     assert.strictEqual('test', 'test')
-    console.log(localStorage.getItem('blah'))
+    console.log(window.localStorage.getItem('blah'))
     console.dir({name: 'jp'})
   })
 })

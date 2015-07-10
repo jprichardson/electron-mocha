@@ -1,3 +1,4 @@
+var fs = require('fs')
 var path = require('path')
 var program = require('commander')
 
@@ -9,8 +10,8 @@ function parse (argv) {
     .version(require('./package').version)
     .usage('[options] [files]')
     .option('-R, --reporter <name>', 'specify the reporter to use', 'spec')
-    .option('-S, --sort', "sort test files")
-    .option('-b, --bail', "bail after first test failure")
+    .option('-S, --sort', 'sort test files')
+    .option('-b, --bail', 'bail after first test failure')
     .option('-g, --grep <pattern>', 'only run tests matching <pattern>')
     .option('-f, --fgrep <string>', 'only run tests containing <string>')
     .option('-i, --invert', 'inverts --grep and --fgrep matches')
@@ -42,10 +43,10 @@ function parse (argv) {
   argData.files = argData.args
 
   // delete unused
- ;['commands', 'options', '_execs', '_args', '_name', '_events',
-  '_usage', '_version', '_eventsCount', 'args'].forEach(function (key) {
-   delete argData[key]
- })
+  ;['commands', 'options', '_execs', '_args', '_name', '_events',
+    '_usage', '_version', '_eventsCount', 'args'].forEach(function (key) {
+    delete argData[key]
+  })
 
   return argData
 }

@@ -15,7 +15,7 @@ function createFromArgs (args) {
   if (args.slow) mocha.suite.slow(args.slow)
   if (!args.timeouts) mocha.enableTimeouts(false)
   if (args.timeout) mocha.suite.timeout(args.timeout)
-  //mocha.suite.bail(args.bail)
+  // mocha.suite.bail(args.bail)
   if (args.grep) mocha.grep(new RegExp(args.grep))
   if (args.fgrep) mocha.grep(args.fgrep)
   if (args.invert) mocha.invert()
@@ -32,7 +32,7 @@ function createFromArgs (args) {
     files = files.concat(utils.lookupFiles(arg, extensions, args.recursive))
   })
 
-  files = files.map(function (f){
+  files = files.map(function (f) {
     return path.resolve(f)
   })
 
@@ -47,8 +47,8 @@ function createFromArgs (args) {
 
 function run (args, callback) {
   var mocha = createFromArgs(args)
-  var runner = mocha.run(callback)
-  //process.on('SIGINT', function () { runner.abort() })
+  /* var runner = */ mocha.run(callback)
+  // process.on('SIGINT', function () { runner.abort() })
 }
 
 module.exports = {
