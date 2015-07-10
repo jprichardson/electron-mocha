@@ -5,6 +5,11 @@ var path = require('path')
 var args = require('./args')
 var mocha = require('./mocha')
 
+// these were suppose to do something, but they don't
+// https://github.com/atom/electron/blob/master/docs/api/chrome-command-line-switches.md#--vlog_level
+// app.commandLine.appendSwitch('v', -1)
+// app.commandLine.appendSwitch('vmodule', 'console=0')
+
 var opts = args.parse(process.argv)
 
 app.on('ready', function () {
