@@ -20,7 +20,7 @@ function createFromArgs (args) {
   if (args.fgrep) mocha.grep(args.fgrep)
   if (args.invert) mocha.invert()
   if (args.checkLeaks) mocha.checkLeaks()
-  mocha.globals(args.globals)*/
+  mocha.globals(args.globals)
 
   var files = args.files
 
@@ -49,7 +49,6 @@ function createFromArgs (args) {
 }
 
 function run (args, callback) {
-  console.log('this cant be runnning')
   var mocha = createFromArgs(args)
   var runner = mocha.run(callback)
   //process.on('SIGINT', function () { runner.abort() })

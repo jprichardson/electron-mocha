@@ -19,11 +19,10 @@ app.on('ready', function () {
       console.log('done')
       exit(code)
     })
-  //}
+  }
 })
 
 function exit (code) {
-  console.log('wtf')
   // process.exit() does not work properly
   // app.quit() does not set code
   // bug in Electron, see issue: https://github.com/atom/electron/issues/1983
