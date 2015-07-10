@@ -35,7 +35,7 @@
     "commander": "^2.8.1",
     "electron-window": "^0.4.2",
     "fs-extra": "^0.22.1",
-    "mocha": "^2.2.5",
+    "mocha": "2.2.5",
     "object-assign": "^3.0.0",
     "which": "^1.1.1"
   }
