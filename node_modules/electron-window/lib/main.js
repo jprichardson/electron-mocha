@@ -47,6 +47,11 @@ function createWindow (options) {
   window._loadUrlWithArgs = _loadUrlWithArgs.bind(window)
 
   window.showUrl = function (httpOrFileUrl, args, callback) {
+    if (typeof args === 'function') {
+      callback = args
+      args = null
+    }
+
     window._loadUrlWithArgs(httpOrFileUrl, args, function () {
       window.show()
       callback && callback.apply(this, arguments)
