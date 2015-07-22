@@ -27,12 +27,12 @@ app.on('ready', function () {
   if (!opts.renderer) {
     mocha.run(opts, exit)
   } else {
-    var win = window.createWindow({ height: 700, width: 1200 })
+    var win = window.createWindow({ height: 700, width: 1200, 'web-preferences': { 'web-security': false } })
+    var indexPath = path.resolve(path.join(__dirname, './renderer/index.html'))
     // undocumented call in electron-window
-    win._loadUrlWithArgs(path.resolve('./renderer/index.html'), opts, Function())
-    // win.showUrl(path.resolve('./renderer/index.html'), opts)
+    win._loadUrlWithArgs(indexPath, opts, Function())
+    // win.showUrl(indexPath, opts)
     ipc.on('mocha-done', function (event, code) {
-      console.log('done')
       exit(code)
     })
   }
@@ -47,4 +47,3 @@ function exit (code) {
     app.quit(code)
   })
 }
-
