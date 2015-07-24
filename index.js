@@ -41,6 +41,8 @@ app.on('ready', function () {
 function exit (code) {
   fs.remove(browserDataPath, function (err) {
     if (err) console.error(err)
+    // This is used as a workaround
+    console.error("EXITCODE:"+code)
     // process.exit() does not work properly
     // app.quit() does not set code
     // bug in Electron, see issue: https://github.com/atom/electron/issues/1983

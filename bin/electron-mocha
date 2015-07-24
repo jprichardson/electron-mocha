@@ -11,6 +11,9 @@ which('electron', function (err, resolvedPath) {
 })
 
 function runElectron (resolvedPath) {
+  // Default exit code
+  var exitCode = 0;
+
   var args = process.argv.slice(2)
   args.unshift(path.resolve(path.join(__dirname, '../index.js')))
   var electron = spawn(resolvedPath, args, { stdio: ['inherit', 'inherit', 'pipe'] })
@@ -18,6 +21,19 @@ function runElectron (resolvedPath) {
     var str = data.toString('utf8')
     // it's Chromium, STFU
     if (str.match(/^\[\d+\:\d+/)) return
+
+    // Parse for EXITCODE
+    if (str.indexOf('EXITCODE:') === 0) {
+      // memorize for "later"
+      exitCode = parseInt(str.substr(9), 10)
+      return;
+    }
     process.stderr.write(data)
   })
+
+  // If electron has exited
+  electron.on('exit', function(){
+    // we exit with the correct code
+    process.exit(exitCode)
+  });
 }
