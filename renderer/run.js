@@ -1,7 +1,7 @@
+require('./console')
 var ipc = require('ipc')
 var mocha = require('../mocha')
 
-require('./console')
 
 // consider hooking up to mocha
 /* window.onerror = function (message, filename, lineno, colno, err) {
