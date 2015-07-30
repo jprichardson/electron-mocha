@@ -1,6 +1,8 @@
-x.y.z / 2015-07-30
+0.3.0 / 2015-07-30
 ------------------
 - display an error about not being able locate `electron`
+- change `process.stdout` hijacking https://github.com/jprichardson/electron-mocha/pull/6
+- removed `node_modules` https://github.com/jprichardson/electron-mocha/pull/7
 
 0.2.1 / 2015-07-22
 ------------------
