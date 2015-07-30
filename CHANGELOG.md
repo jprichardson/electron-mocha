@@ -1,3 +1,7 @@
+x.y.z / 2015-07-30
+------------------
+- display an error about not being able locate `electron`
+
 0.2.1 / 2015-07-22
 ------------------
 - bugfix on finding `index.html` for `--renderer` tests
