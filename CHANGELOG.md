@@ -1,3 +1,7 @@
+0.3.1 / 2015-08-27
+------------------
+- bugfix: incorrect stdin/stdout values (fail on Node v0.10): https://github.com/jprichardson/electron-mocha/pull/8
+
 0.3.0 / 2015-07-30
 ------------------
 - display an error about not being able locate `electron`
