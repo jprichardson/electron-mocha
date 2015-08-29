@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/jprichardson/electron-mocha#readme",
   "dependencies": {
+    "coffee-script": "^1.9.3",
     "commander": "^2.8.1",
     "electron-window": "^0.5.0",
     "fs-extra": "^0.22.1",

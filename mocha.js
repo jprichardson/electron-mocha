@@ -1,5 +1,6 @@
 var Mocha = require('mocha')
 var path = require('path')
+require('coffee-script/register')
 
 function createFromArgs (args) {
   var utils = Mocha.utils
@@ -26,7 +27,7 @@ function createFromArgs (args) {
 
   // default files to test/*.js
   var files = []
-  var extensions = ['js']
+  var extensions = ['js', 'coffee']
   if (!args.files.length) args.files.push('test')
   args.files.forEach(function (arg) {
     files = files.concat(utils.lookupFiles(arg, extensions, args.recursive))
