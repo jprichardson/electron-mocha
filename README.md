@@ -57,6 +57,7 @@ Usage: electron-mocha [options] [files]
     -t, --timeout <ms>     set test-case timeout in milliseconds [2000]
     -u, --ui <name>        specify user-interface (bdd|tdd|exports)
     --check-leaks          check for global variable leaks
+    --compilers            use the given module(s) to compile files
     --globals <names>      allow the given comma-delimited global [names]
     --inline-diffs         display actual/expected differences inline within each string
     --interfaces           display available interfaces
