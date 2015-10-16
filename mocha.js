@@ -32,6 +32,16 @@ function createFromArgs (args) {
     files = files.concat(utils.lookupFiles(arg, extensions, args.recursive))
   })
 
+  args.compilers.forEach(function (c) {
+    var compiler = c.split(':')
+    var ext = compiler[0]
+    var mod = compiler[1]
+
+    if (mod[0] === '.') mod = path.join(process.cwd(), mod)
+    require(mod)
+    extensions.push(ext)
+  })
+
   files = files.map(function (f) {
     return path.resolve(f)
   })

@@ -20,6 +20,7 @@ function parse (argv) {
     .option('-t, --timeout <ms>', 'set test-case timeout in milliseconds [2000]')
     .option('-u, --ui <name>', 'specify user-interface (bdd|tdd|exports)', 'bdd')
     .option('--check-leaks', 'check for global variable leaks')
+    .option('--compilers <ext>:<module>,...', 'use the given module(s) to compile files', list, [])
     .option('--globals <names>', 'allow the given comma-delimited global [names]', list, [])
     .option('--inline-diffs', 'display actual/expected differences inline within each string')
     .option('--interfaces', 'display available interfaces')
