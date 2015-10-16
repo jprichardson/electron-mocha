@@ -1,3 +1,7 @@
+0.4.0 / 2015-10-16
+------------------
+- added `--compilers` flag. See: https://github.com/jprichardson/electron-mocha/pull/16
+
 0.3.1 / 2015-08-27
 ------------------
 - bugfix: incorrect stdin/stdout values (fail on Node v0.10): https://github.com/jprichardson/electron-mocha/pull/8
