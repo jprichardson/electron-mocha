@@ -9,6 +9,7 @@ var mocha = require('../mocha')
 }*/
 
 // console.log(JSON.stringify(window.__args__, null, 2))
-mocha.run(window.__args__, function (failureCount) {
+var args = JSON.parse(JSON.stringify(window.__args__))
+mocha.run(args, function (failureCount) {
   ipc.send('mocha-done', failureCount)
 })
