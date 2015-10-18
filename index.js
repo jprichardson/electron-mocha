@@ -41,6 +41,6 @@ app.on('ready', function () {
 function exit (code) {
   fs.remove(browserDataPath, function (err) {
     if (err) console.error(err)
-    process.exit(code);
+    process.exit(code)
   })
 }
