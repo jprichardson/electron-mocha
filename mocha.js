@@ -42,6 +42,12 @@ function createFromArgs (args) {
     extensions.push(ext)
   })
 
+  if (args.watch) {
+    args.watchExtensions = args.watchExtensions ?
+      args.watchExtensions.split(',') : []
+    args.watchExtensions = args.watchExtensions.concat(extensions)
+  }
+
   files = files.map(function (f) {
     return path.resolve(f)
   })
@@ -55,10 +61,65 @@ function createFromArgs (args) {
   return mocha
 }
 
+function watch (mocha, args, callback) {
+  var utils = Mocha.utils
+  var runner
+  process.on('SIGINT', function(){
+    callback(0)
+  })
+
+  var watchFiles = utils.files(process.cwd(), [ 'js' ].concat(args.watchExtensions))
+  var runAgain = false
+
+  function loadAndRun () {
+    try {
+      runAgain = false
+      runner = mocha.run(function () {
+        runner = null
+        if (runAgain) {
+          rerun()
+        }
+      })
+    } catch(e) {
+      console.log(e.stack)
+    }
+  }
+
+  function purge () {
+    watchFiles.forEach(function (file) {
+      delete require.cache[file]
+    })
+  }
+
+  loadAndRun()
+
+  function rerun () {
+    purge()
+    if (!args.grep) mocha.grep(null)
+    mocha.suite = mocha.suite.clone()
+    mocha.suite.ctx = new Mocha.Context
+    mocha.ui(args.ui)
+    loadAndRun()
+  }
+
+  utils.watch(watchFiles, function () {
+    runAgain = true
+    if (runner) {
+      runner.abort()
+    } else {
+      rerun()
+    }
+  })
+}
+
 function run (args, callback) {
-  var mocha = createFromArgs(args)
-  /* var runner = */ mocha.run(callback)
-  // process.on('SIGINT', function () { runner.abort() })
+  var mocha = createFromArgs(args, callback)
+  if (args.watch) {
+    watch(mocha, args, callback)
+  } else {
+    /* var runner = */ mocha.run(callback)
+    // process.on('SIGINT', function () { runner.abort() })
+  }
 }
 
 module.exports = {

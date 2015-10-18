@@ -19,6 +19,7 @@ function parse (argv) {
     .option('-s, --slow <ms>', '"slow" test threshold in milliseconds [75]')
     .option('-t, --timeout <ms>', 'set test-case timeout in milliseconds [2000]')
     .option('-u, --ui <name>', 'specify user-interface (bdd|tdd|exports)', 'bdd')
+    .option('-w, --watch', 'watch files for changes')
     .option('--check-leaks', 'check for global variable leaks')
     .option('--compilers <ext>:<module>,...', 'use the given module(s) to compile files', list, [])
     .option('--globals <names>', 'allow the given comma-delimited global [names]', list, [])
@@ -27,6 +28,7 @@ function parse (argv) {
     .option('--no-timeouts', 'disables timeouts')
     .option('--recursive', 'include sub directories')
     .option('--renderer', 'run tests in renderer process')
+    .option('--watch-extensions <ext>,...', 'additional extensions to monitor with --watch')
 
   program.on('globals', function (val) {
     globals = globals.concat(list(val))
