@@ -41,9 +41,6 @@ app.on('ready', function () {
 function exit (code) {
   fs.remove(browserDataPath, function (err) {
     if (err) console.error(err)
-    // process.exit() does not work properly
-    // app.quit() does not set code
-    // bug in Electron, see issue: https://github.com/atom/electron/issues/1983
-    app.quit(code)
+    process.exit(code)
   })
 }
