@@ -1,3 +1,7 @@
+0.5.0 / 2015-10-21
+------------------
+- end Electron with proper exit code now. See: https://github.com/jprichardson/electron-mocha/pull/17
+
 0.4.0 / 2015-10-16
 ------------------
 - added `--compilers` flag. See: https://github.com/jprichardson/electron-mocha/pull/16
