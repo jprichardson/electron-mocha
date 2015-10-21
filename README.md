@@ -87,7 +87,6 @@ running in a [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser)) pr
 
 Roadmap
 -------
-- Run this on Travis-CI. Would involve downloading Electron / setting up xvfb.
 - Implement a way to allow tests to run in either `main`/`renderer` from within
 the same test file for the purposes of integration testing.
 
@@ -96,7 +95,3 @@ License
 -------
 
 MIT
-
-
-
-
