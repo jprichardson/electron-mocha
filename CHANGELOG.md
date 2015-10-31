@@ -1,3 +1,7 @@
+0.5.1 / 2015-10-30
+------------------
+- bugfix: expose `mocha` to `window` as Mocha does. See: https://github.com/jprichardson/electron-mocha/pull/20
+
 0.5.0 / 2015-10-21
 ------------------
 - end Electron with proper exit code now. See: https://github.com/jprichardson/electron-mocha/pull/17
