@@ -62,6 +62,7 @@ Usage: electron-mocha [options] [files]
     --inline-diffs         display actual/expected differences inline within each string
     --interfaces           display available interfaces
     --no-timeouts          disables timeouts
+    --opts <path>          specify opts path [test/mocha.opts]
     --recursive            include sub directories
     --renderer             run tests in renderer process
 
