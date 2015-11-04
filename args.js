@@ -25,6 +25,7 @@ function parse (argv) {
     .option('--inline-diffs', 'display actual/expected differences inline within each string')
     .option('--interfaces', 'display available interfaces')
     .option('--no-timeouts', 'disables timeouts')
+    .option('--opts <path>', 'specify opts path', 'test/mocha.opts')
     .option('--recursive', 'include sub directories')
     .option('--renderer', 'run tests in renderer process')
 

@@ -4,6 +4,7 @@ var ipc = require('ipc')
 var path = require('path')
 var os = require('os')
 var window = require('electron-window')
+var getOptions = require('mocha/bin/options')
 var args = require('./args')
 var mocha = require('./mocha')
 
@@ -18,6 +19,10 @@ process.on('uncaughtException', function (err) {
   exit(1)
 })
 
+// load mocha.opts into process.argv
+getOptions()
+
+// parse args
 var opts = args.parse(process.argv)
 
 var browserDataPath = path.join(os.tmpdir(), 'electron-mocha-' + Date.now().toString())
