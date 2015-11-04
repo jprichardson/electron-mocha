@@ -28,4 +28,5 @@ function runElectron (resolvedPath) {
     if (str.match(/^\[\d+\:\d+/)) return
     process.stderr.write(data)
   })
+  electron.on('exit', function(code){ process.exit(code) })
 }
