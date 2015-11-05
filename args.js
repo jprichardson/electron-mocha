@@ -45,8 +45,7 @@ function parse (argv) {
   argData.files = argData.args
 
   // delete unused
-  ;['commands', 'options', '_execs', '_args', '_name', '_events',
-    '_usage', '_version', '_eventsCount', 'args'].forEach(function (key) {
+  ;['commands', 'options', '_execs', '_args', '_name', '_events', '_usage', '_version', '_eventsCount', 'args'].forEach(function (key) {
     delete argData[key]
   })
 
