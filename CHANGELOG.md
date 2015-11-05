@@ -1,3 +1,7 @@
+0.6.1 / 2015-11-05
+------------------
+- fix exit code on `bin/electron-mocha`: See: https://github.com/jprichardson/electron-mocha/pull/22
+
 0.6.0 / 2015-11-05
 ------------------
 - add support for mocha opts: See: https://github.com/jprichardson/electron-mocha/pull/21
