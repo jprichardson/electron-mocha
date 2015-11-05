@@ -1,3 +1,7 @@
+0.6.0 / 2015-11-05
+------------------
+- add support for mocha opts: See: https://github.com/jprichardson/electron-mocha/pull/21
+
 0.5.1 / 2015-10-30
 ------------------
 - bugfix: expose `mocha` to `window` as Mocha does. See: https://github.com/jprichardson/electron-mocha/pull/20
