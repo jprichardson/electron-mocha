@@ -7,6 +7,8 @@ var window = require('electron-window')
 var getOptions = require('mocha/bin/options')
 var args = require('./args')
 var mocha = require('./mocha')
+var util = require('util')
+var path = require('path')
 
 // these were suppose to do something, but they don't
 // https://github.com/atom/electron/blob/master/docs/api/chrome-command-line-switches.md#--vlog_level
@@ -40,8 +42,19 @@ app.on('ready', function () {
     ipc.on('mocha-done', function (event, code) {
       exit(code)
     })
+    ipc.on('mocha-error', function(event, data) {
+      writeError(data)
+      exit(1)
+    })
   }
 })
+
+function writeError(data) {
+  process.stderr.write(util.format('\nError encountered in %s: %s\n%s',
+    path.relative(process.cwd(), data.filename),
+    data.message,
+    data.stack))
+}
 
 function exit (code) {
   fs.remove(browserDataPath, function (err) {
