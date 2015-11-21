@@ -1,3 +1,7 @@
+0.6.2 / 2015-11-21
+------------------
+- report error if in mocha: See: https://github.com/jprichardson/electron-mocha/pull/25
+
 0.6.1 / 2015-11-05
 ------------------
 - fix exit code on `bin/electron-mocha`: See: https://github.com/jprichardson/electron-mocha/pull/22
