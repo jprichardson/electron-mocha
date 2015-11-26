@@ -1,3 +1,7 @@
+0.6.3 / 2015-11-26
+------------------
+- fix for deprecation warnings in Electron `v0.35`. See: https://github.com/jprichardson/electron-mocha/pull/26
+
 0.6.2 / 2015-11-21
 ------------------
 - report error if in mocha: See: https://github.com/jprichardson/electron-mocha/pull/25
