@@ -7,16 +7,13 @@ var args = require('./args')
 var mocha = require('./mocha')
 var util = require('util')
 var app
-var ipc
-// Check if electron version is >0.35.0
-var electronV = process.versions['electron'].split('.')
-if (parseInt(electronV[1], 10) >= 35 && electronV[0] === '0') {
-  var electron = require('electron')
-  ipc = electron.ipcMain
-  app = electron.app
-} else {
-  ipc = require('ipc')
+var ipc 
+try {
+  app = require('electron').app
+  ipc = require('electron').ipcMain
+} catch (e) {
   app = require('app')
+  ipc = require('ipc')
 }
 
 // these were suppose to do something, but they don't
