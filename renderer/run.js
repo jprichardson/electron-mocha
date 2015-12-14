@@ -5,7 +5,7 @@ var ipc
 var electronV = process.versions['electron'].split('.')
 if (parseInt(electronV[1], 10) >= 35 && electronV[0] === '0') {
   var electron = require('electron')
-  ipc = electron.ipcMain
+  ipc = electron.ipcRenderer
 } else {
   ipc = require('ipc')
 }
