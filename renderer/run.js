@@ -2,7 +2,7 @@ require('./console')
 var mocha = require('../mocha')
 var ipc
 try {
-  ipc = require('electron').ipcMain
+  ipc = require('electron').ipcRenderer
 } catch(e) {
   ipc = require('ipc')
 }
