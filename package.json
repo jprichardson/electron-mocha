@@ -2,7 +2,6 @@
   "name": "electron-mocha",
   "version": "0.6.3",
   "description": "Mocha tests in Electron.",
-  "preferGlobal": true,
   "main": "index.js",
   "scripts": {
     "test": "standard"
