@@ -1,3 +1,9 @@
+0.7.0 / 2015-12-15
+------------------
+- update `electron-window` dep. (For electron >= `0.35`). Removes deprecation warnings. See: https://github.com/jprichardson/electron-mocha/pull/31
+- clean up require statements (Electron modules). See: https://github.com/jprichardson/electron-mocha/pull/29
+- `--require` support fixed in Renderer. See: https://github.com/jprichardson/electron-mocha/pull/33
+
 0.6.3 / 2015-11-26
 ------------------
 - fix for deprecation warnings in Electron `v0.35`. See: https://github.com/jprichardson/electron-mocha/pull/26
