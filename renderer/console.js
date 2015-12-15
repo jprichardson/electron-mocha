@@ -1,7 +1,7 @@
 var remote
 try {
   remote = require('electron').remote
-} catch(e) {
+} catch (e) {
   remote = require('remote')
 }
 var remoteConsole = remote.require('console')

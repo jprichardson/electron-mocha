@@ -7,7 +7,7 @@ var args = require('./args')
 var mocha = require('./mocha')
 var util = require('util')
 var app
-var ipc 
+var ipc
 try {
   app = require('electron').app
   ipc = require('electron').ipcMain

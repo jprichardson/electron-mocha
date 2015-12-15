@@ -3,7 +3,6 @@ var path = require('path')
 var program = require('commander')
 var join = path.join
 var resolve = path.resolve
-var exists = fs.existsSync || path.existsSync
 var cwd = process.cwd()
 
 function parse (argv) {
@@ -41,7 +40,7 @@ function parse (argv) {
   module.paths.push(cwd, join(cwd, 'node_modules'))
 
   program.on('require', function (mod) {
-    var abs = exists(mod) || exists(mod + '.js')
+    var abs = fs.existsSync(mod) || fs.existsSync(mod + '.js')
     if (abs) mod = resolve(mod)
     requires.push(mod)
   })
@@ -50,7 +49,7 @@ function parse (argv) {
   var argData = JSON.parse(JSON.stringify(program))
   argData.files = argData.args
 
-  argData.require = requires;
+  argData.require = requires
 
   // delete unused
   ;['commands', 'options', '_execs', '_args', '_name', '_events', '_usage', '_version', '_eventsCount', 'args'].forEach(function (key) {

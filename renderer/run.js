@@ -3,7 +3,7 @@ var mocha = require('../mocha')
 var ipc
 try {
   ipc = require('electron').ipcRenderer
-} catch(e) {
+} catch (e) {
   ipc = require('ipc')
 }
 
