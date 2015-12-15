@@ -38,6 +38,9 @@ app.setPath('userData', browserDataPath)
 
 app.on('ready', function () {
   if (!opts.renderer) {
+    opts.require.forEach(function (mod) {
+      require(mod)
+    })
     mocha.run(opts, exit)
   } else {
     var win = window.createWindow({ height: 700, width: 1200, 'web-preferences': { 'web-security': false } })

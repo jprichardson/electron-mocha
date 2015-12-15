@@ -19,7 +19,13 @@ window.onerror = function (message, filename, lineno, colno, err) {
   })
 }
 
-// console.log(JSON.stringify(window.__args__, null, 2))
-mocha.run(window.__args__, function (failureCount) {
+var opts = window.__args__
+// console.log(JSON.stringify(opts, null, 2))
+
+opts.require.forEach(function (mod) {
+  require(mod)
+})
+
+mocha.run(opts, function (failureCount) {
   ipc.send('mocha-done', failureCount)
 })
