@@ -85,6 +85,14 @@ This runs the tests in the [`renderer`](https://github.com/atom/electron/blob/ma
 Yes, this means that you have access to the entirety of the DOM, web storage, etc. This is because it's actually
 running in a [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser)) process.
 
+### Using on Travis
+
+You'll need to setup a Linux display server on Travis to run this headless:
+
+```
+before_script:
+  - export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start
+```
 
 Roadmap
 -------
