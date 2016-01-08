@@ -1,0 +1,24 @@
+{
+  "name": "electron-demo-app",
+  "description": "Electron demo app featuring tests done through electron-mocha",
+  "version": "1.0.0",
+  "author": "electron-mocha",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "npm prune",
+    "start": "electron .",
+    "test": "npm run test:main && npm run test:renderer",
+    "test:main": "electron-mocha --require main.js test/main/*.test.js",
+    "test:renderer": "electron-mocha --renderer test/renderer/*.test.js",
+    "posttest": "npm run lint",
+    "lint": "eslint ."
+  },
+  "main": "main.js",
+  "dependencies": {
+    "electron-prebuilt": "0.36.0"
+  },
+  "devDependencies": {
+    "electron-mocha": "0.7.0",
+    "eslint": "1.10.3"
+  }
+}
