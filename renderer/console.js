@@ -17,9 +17,5 @@ console.dir = function () {
 
 // if we don't do this, we get socket errors and our tests crash
 Object.defineProperty(process, 'stdout', {
-  value: {
-    write: function (msg) {
-      remoteConsole.log.apply(remoteConsole, arguments)
-    }
-  }
+  value: remote.process.stdout
 })
