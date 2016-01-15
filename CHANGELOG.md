@@ -1,3 +1,7 @@
+0.8.0 / 2016-01-14
+------------------
+- Fix remote output w/ line breaks. See [#40][#40]
+
 0.7.0 / 2015-12-15
 ------------------
 - update `electron-window` dep. (For electron >= `0.35`). Removes deprecation warnings. See: https://github.com/jprichardson/electron-mocha/pull/31
@@ -58,3 +62,5 @@
 0.1.0 / 2015-07-10
 ------------------
 - initial release
+
+[#40]: https://github.com/jprichardson/electron-mocha/pull/40
