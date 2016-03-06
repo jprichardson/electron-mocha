@@ -56,6 +56,7 @@ Usage: electron-mocha [options] [files]
     -s, --slow <ms>        "slow" test threshold in milliseconds [75]
     -t, --timeout <ms>     set test-case timeout in milliseconds [2000]
     -u, --ui <name>        specify user-interface (bdd|tdd|exports)
+    --scripts <path>       scripts to load in renderer tests
     --check-leaks          check for global variable leaks
     --compilers            use the given module(s) to compile files
     --globals <names>      allow the given comma-delimited global [names]

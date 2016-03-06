@@ -44,7 +44,24 @@ app.on('ready', function () {
     mocha.run(opts, exit)
   } else {
     var win = window.createWindow({ height: 700, width: 1200, 'web-preferences': { 'web-security': false } })
-    var indexPath = path.resolve(path.join(__dirname, './renderer/index.html'))
+    var indexPath = pathFrom(browserDataPath, './renderer/index.html')
+
+    var setupScript
+    setupScript = 'require("' + pathFrom(__dirname, './renderer/console.js') + '");'
+    setupScript += 'var Mocha = require("'+ pathFrom(__dirname, './mocha.js') +'");'
+    setupScript += 'require("' + pathFrom(__dirname, './renderer/run.js') + '");'
+
+    // read in any external scripts to load and wrap everything in HTML script tags
+    var scripts = opts.scripts.map(function(scriptPath) {
+      return fs.readFileSync(pathFrom(process.cwd(), scriptPath), 'utf8');
+    })
+    .concat(setupScript)
+    .map(function(script) {
+      return '<script>' + script + '</script>'
+    })
+    .join('')
+
+    fs.outputFileSync(indexPath, scripts);
     // undocumented call in electron-window
     win._loadUrlWithArgs(indexPath, opts, function () {})
     // win.showUrl(indexPath, opts)
@@ -57,6 +74,10 @@ app.on('ready', function () {
     })
   }
 })
+
+function pathFrom(root, relative) {
+  return path.resolve(path.join(root, relative));
+}
 
 function writeError (data) {
   process.stderr.write(util.format('\nError encountered in %s: %s\n%s',
