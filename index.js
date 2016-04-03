@@ -8,6 +8,7 @@ var mocha = require('./mocha')
 var util = require('util')
 var app
 var ipc
+var v = process.versions.electron.split('.').map(Number)
 try {
   app = require('electron').app
   ipc = require('electron').ipcMain
@@ -43,7 +44,15 @@ app.on('ready', function () {
     })
     mocha.run(opts, exit)
   } else {
-    var win = window.createWindow({ height: 700, width: 1200, 'web-preferences': { 'web-security': false } })
+    var prefs = { height: 700, width: 1200 }
+
+    if (v[0] === 0 && v[1] < 37) {
+      prefs['web-preferences'] = { 'web-security': false }
+    } else {
+      prefs.webPreferences = { webSecurity: false }
+    }
+
+    var win = window.createWindow(prefs)
     var indexPath = path.resolve(path.join(__dirname, './renderer/index.html'))
     // undocumented call in electron-window
     win._loadUrlWithArgs(indexPath, opts, function () {})
