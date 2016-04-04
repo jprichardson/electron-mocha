@@ -1,3 +1,7 @@
+1.0.1 / 2016-04-04
+------------------
+- Update BrowserWindow options syntax for Electron >= 0.37.4. Removes deprecation warnings.
+
 1.0.0 / 2016-03-21
 ------------------
 - console piping issue [#48][#48]
