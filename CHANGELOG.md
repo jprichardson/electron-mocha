@@ -1,3 +1,7 @@
+1.0.2 / 2016-04-04
+------------------
+- Ensure backwards compatibility of previous version
+
 1.0.1 / 2016-04-04
 ------------------
 - Update BrowserWindow options syntax for Electron >= 0.37.4. Removes deprecation warnings.
