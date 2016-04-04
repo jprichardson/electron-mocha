@@ -46,7 +46,7 @@ app.on('ready', function () {
   } else {
     var prefs = { height: 700, width: 1200 }
 
-    if (v[0] === 0 && v[1] < 37 && v[2] < 4) {
+    if (v[0] === 0 && v[1] < 37) {
       prefs['web-preferences'] = { 'web-security': false }
     } else {
       prefs.webPreferences = { webSecurity: false }
