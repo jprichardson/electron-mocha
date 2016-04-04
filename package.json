@@ -1,6 +1,6 @@
 {
   "name": "electron-mocha",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mocha tests in Electron.",
   "main": "index.js",
   "scripts": {
