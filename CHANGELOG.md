@@ -1,3 +1,7 @@
+1.0.3 / 2016-04-07
+------------------
+- Update to latest mocha
+
 1.0.2 / 2016-04-04
 ------------------
 - Ensure backwards compatibility of previous version
