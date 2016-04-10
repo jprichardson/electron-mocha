@@ -1,3 +1,7 @@
+1.1.0 / 2016-04-10
+------------------
+- Add --preload option. See: https://github.com/jprichardson/electron-mocha/pull/45
+
 1.0.3 / 2016-04-07
 ------------------
 - Update to latest mocha
