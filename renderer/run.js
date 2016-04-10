@@ -26,6 +26,14 @@ opts.require.forEach(function (mod) {
   require(mod)
 })
 
-mocha.run(opts, function (failureCount) {
-  ipc.send('mocha-done', failureCount)
+opts.scripts.forEach(function (path) {
+  var scriptElem = document.createElement('script')
+  scriptElem.setAttribute('src', process.cwd() + '/' + path)
+  document.head.appendChild(scriptElem)
+})
+
+document.addEventListener( "DOMContentLoaded", function() {
+  mocha.run(opts, function (failureCount) {
+    ipc.send('mocha-done', failureCount)
+  })
 })
