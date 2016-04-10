@@ -26,6 +26,15 @@ opts.require.forEach(function (mod) {
   require(mod)
 })
 
-mocha.run(opts, function (failureCount) {
-  ipc.send('mocha-done', failureCount)
+opts.preload.forEach(function (script) {
+  var tag = document.createElement('script')
+  tag.src = script
+  tag.async = false
+  document.head.appendChild(tag)
+})
+
+window.addEventListener('load', function () {
+  mocha.run(opts, function (failureCount) {
+    ipc.send('mocha-done', failureCount)
+  })
 })
