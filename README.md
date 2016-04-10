@@ -65,6 +65,7 @@ Usage: electron-mocha [options] [files]
     --opts <path>          specify opts path [test/mocha.opts]
     --recursive            include sub directories
     --renderer             run tests in renderer process
+    --scripts <path>       scripts to load in renderer tests
 
 ```
 
