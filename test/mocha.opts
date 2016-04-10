@@ -1,0 +1,2 @@
+--require test/support/require
+--preload test/support/preload.js

@@ -4,7 +4,9 @@
   "description": "Mocha tests in Electron.",
   "main": "index.js",
   "scripts": {
-    "test": "standard"
+    "test": "standard && ./bin/electron-mocha test/main && ./bin/electron-mocha --renderer test/renderer",
+    "mocha": "./bin/electron-mocha",
+    "prepublish": "test"
   },
   "bin": {
     "electron-mocha": "./bin/electron-mocha"
@@ -38,6 +40,7 @@
     "which": "^1.1.1"
   },
   "devDependencies": {
+    "electron-prebuilt": "^0.37.5",
     "standard": "^6.0.8"
   }
 }
