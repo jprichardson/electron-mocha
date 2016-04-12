@@ -1,3 +1,7 @@
+1.2.0 / 2016-04-12
+------------------
+- fallback to local `electron-prebuilt` if can't find `electron` in the `$PATH` [#55][#55]
+
 1.1.0 / 2016-04-10
 ------------------
 - Add --preload option. See: https://github.com/jprichardson/electron-mocha/pull/45
@@ -83,6 +87,20 @@
 ------------------
 - initial release
 
+<!--- Fallback to local install of electron-prebuilt -->
+[#55]: https://github.com/jprichardson/electron-mocha/pull/55
+<!--- Add tests for mocha.opts, --require, and --preload -->
+[#54]: https://github.com/jprichardson/electron-mocha/pull/54
+<!--- Add option to preload script tags -->
+[#53]: https://github.com/jprichardson/electron-mocha/pull/53
+<!--- Add arbitrary scripts to renderer html page with --scripts option -->
+[#52]: https://github.com/jprichardson/electron-mocha/pull/52
+<!--- Electron 0.37.4 -- Renderer hangs -->
+[#51]: https://github.com/jprichardson/electron-mocha/issues/51
+<!--- Suppress 0.37+ deprecation warnings -->
+[#50]: https://github.com/jprichardson/electron-mocha/pull/50
+<!--- Deleting temp data directory is causing errors in windows -->
+[#49]: https://github.com/jprichardson/electron-mocha/issues/49
 <!--- addressing intellij and tee console issue -->
 [#48]: https://github.com/jprichardson/electron-mocha/pull/48
 <!--- No console output on Windows -->
