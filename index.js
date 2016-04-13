@@ -58,9 +58,11 @@ app.on('ready', function () {
     win._loadUrlWithArgs(indexPath, opts, function () {})
     // win.showUrl(indexPath, opts)
     ipc.on('mocha-done', function (event, code) {
+      win.destroy();
       exit(code)
     })
     ipc.on('mocha-error', function (event, data) {
+      win.destroy();
       writeError(data)
       exit(1)
     })
