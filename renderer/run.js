@@ -22,10 +22,6 @@ window.onerror = function (message, filename, lineno, colno, err) {
 var opts = window.__args__
 // console.log(JSON.stringify(opts, null, 2))
 
-opts.require.forEach(function (mod) {
-  require(mod)
-})
-
 opts.preload.forEach(function (script) {
   var tag = document.createElement('script')
   tag.src = script

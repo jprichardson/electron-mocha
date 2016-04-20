@@ -39,9 +39,6 @@ app.setPath('userData', browserDataPath)
 
 app.on('ready', function () {
   if (!opts.renderer) {
-    opts.require.forEach(function (mod) {
-      require(mod)
-    })
     mocha.run(opts, exit)
   } else {
     var prefs = { height: 700, width: 1200 }
