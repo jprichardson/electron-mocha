@@ -1,3 +1,7 @@
+1.2.2 / 2016-04-20
+------------------
+- Load compiler before require options. See: [#57][#57]
+
 1.2.1 / 2016-04-19
 ------------------
 - window destroyed on exit. See: [#56][#56]
