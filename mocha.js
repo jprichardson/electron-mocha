@@ -42,6 +42,10 @@ function createFromArgs (args) {
     extensions.push(ext)
   })
 
+  args.require.forEach(function (mod) {
+    require(mod)
+  })
+
   files = files.map(function (f) {
     return path.resolve(f)
   })
