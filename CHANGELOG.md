@@ -1,3 +1,7 @@
+1.2.3 / 2016-05-06
+------------------
+- Update dependencies
+
 1.2.2 / 2016-04-20
 ------------------
 - Load compiler before require options. See: [#57][#57]
