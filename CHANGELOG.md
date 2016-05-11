@@ -1,3 +1,8 @@
+1.3.0 / 2016-05-11
+------------------
+- Electron 1.0 compatibility
+- Update dependencies
+
 1.2.3 / 2016-05-06
 ------------------
 - Update dependencies
