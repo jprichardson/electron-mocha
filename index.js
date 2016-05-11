@@ -52,8 +52,8 @@ app.on('ready', function () {
     var win = window.createWindow(prefs)
     var indexPath = path.resolve(path.join(__dirname, './renderer/index.html'))
     // undocumented call in electron-window
-    win._loadUrlWithArgs(indexPath, opts, function () {})
-    // win.showUrl(indexPath, opts)
+    win._loadURLWithArgs(indexPath, opts, function () {})
+    // win.showURL(indexPath, opts)
     ipc.on('mocha-done', function (event, code) {
       win.destroy()
       exit(code)
