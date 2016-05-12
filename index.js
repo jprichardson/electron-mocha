@@ -25,7 +25,7 @@ try {
 process.on('uncaughtException', function (err) {
   console.error(err)
   console.error(err.stack)
-  exit(1)
+  app.exit(1)
 })
 
 // load mocha.opts into process.argv
@@ -37,9 +37,13 @@ var opts = args.parse(process.argv)
 var browserDataPath = path.join(os.tmpdir(), 'electron-mocha-' + Date.now().toString())
 app.setPath('userData', browserDataPath)
 
+app.on('quit', function () {
+  fs.removeSync(browserDataPath)
+})
+
 app.on('ready', function () {
   if (!opts.renderer) {
-    mocha.run(opts, exit)
+    mocha.run(opts, count => app.exit(count))
   } else {
     var prefs = { height: 700, width: 1200 }
 
@@ -55,13 +59,11 @@ app.on('ready', function () {
     win._loadURLWithArgs(indexPath, opts, function () {})
     // win.showURL(indexPath, opts)
     ipc.on('mocha-done', function (event, code) {
-      win.destroy()
-      exit(code)
+      app.exit(code)
     })
     ipc.on('mocha-error', function (event, data) {
-      win.destroy()
       writeError(data)
-      exit(1)
+      app.exit(1)
     })
   }
 })
@@ -71,11 +73,4 @@ function writeError (data) {
     path.relative(process.cwd(), data.filename),
     data.message,
     data.stack))
-}
-
-function exit (code) {
-  fs.remove(browserDataPath, function (err) {
-    if (err) console.error(err)
-    process.exit(code)
-  })
 }
