@@ -1,3 +1,8 @@
+2.0.0 / 2016-05-12
+------------------
+- Fixed incorrect exit code after Renderer failures See: [#60][#60]
+- Removed Electron 0.x checks / compatibility
+
 1.3.0 / 2016-05-11
 ------------------
 - Electron 1.0 compatibility
