@@ -53,15 +53,25 @@ app.on('ready', function () {
     var indexPath = path.resolve(path.join(__dirname, './renderer/index.html'))
     // undocumented call in electron-window
     win._loadURLWithArgs(indexPath, opts, function () {})
+
+    var exitCode = 0
+    process.on('exit', function () {
+      // Destroying the window below will exit with a code of 0, but we want to
+      // exit with whatever code we got from mocha. So re-exit with the stored
+      // exit code.
+      process.exit(exitCode)
+    })
     // win.showURL(indexPath, opts)
     ipc.on('mocha-done', function (event, code) {
+      exitCode = code
       win.destroy()
-      exit(code)
+      exit(exitCode)
     })
     ipc.on('mocha-error', function (event, data) {
+      exitCode = 1
       win.destroy()
       writeError(data)
-      exit(1)
+      exit(exitCode)
     })
   }
 })
