@@ -6,16 +6,7 @@ var getOptions = require('mocha/bin/options')
 var args = require('./args')
 var mocha = require('./mocha')
 var util = require('util')
-var app
-var ipc
-var v = process.versions.electron.split('.').map(Number)
-try {
-  app = require('electron').app
-  ipc = require('electron').ipcMain
-} catch (e) {
-  app = require('app')
-  ipc = require('ipc')
-}
+var { app, ipcMain: ipc } = require('electron')
 
 // these were suppose to do something, but they don't
 // https://github.com/atom/electron/blob/master/docs/api/chrome-command-line-switches.md#--vlog_level
@@ -45,15 +36,11 @@ app.on('ready', function () {
   if (!opts.renderer) {
     mocha.run(opts, count => app.exit(count))
   } else {
-    var prefs = { height: 700, width: 1200 }
-
-    if (v[0] === 0 && v[1] < 37) {
-      prefs['web-preferences'] = { 'web-security': false }
-    } else {
-      prefs.webPreferences = { webSecurity: false }
-    }
-
-    var win = window.createWindow(prefs)
+    var win = window.createWindow({
+      height: 700,
+      width: 1200,
+      webPreferences: { webSecurity: false }
+    })
     var indexPath = path.resolve(path.join(__dirname, './renderer/index.html'))
     // undocumented call in electron-window
     win._loadURLWithArgs(indexPath, opts, function () {})

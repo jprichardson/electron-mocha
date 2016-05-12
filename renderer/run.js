@@ -1,11 +1,6 @@
 require('./console')
 var mocha = require('../mocha')
-var ipc
-try {
-  ipc = require('electron').ipcRenderer
-} catch (e) {
-  ipc = require('ipc')
-}
+var { ipcRenderer: ipc } = require('electron')
 
 // Expose mocha
 window.mocha = require('mocha')

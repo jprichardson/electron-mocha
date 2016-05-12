@@ -1,9 +1,4 @@
-var remote
-try {
-  remote = require('electron').remote
-} catch (e) {
-  remote = require('remote')
-}
+var { remote } = require('electron')
 var remoteConsole = remote.require('console')
 
 // we have to do this so that mocha output doesn't look like shit
