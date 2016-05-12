@@ -4,8 +4,8 @@
   "description": "Mocha tests in Electron.",
   "main": "index.js",
   "scripts": {
-    "test": "standard && ./bin/electron-mocha test/main && ./bin/electron-mocha --renderer test/renderer",
-    "mocha": "./bin/electron-mocha",
+    "test": "standard && node bin/electron-mocha test/main && node bin/electron-mocha --renderer test/renderer",
+    "mocha": "node bin/electron-mocha",
     "prepublish": "npm test"
   },
   "bin": {
