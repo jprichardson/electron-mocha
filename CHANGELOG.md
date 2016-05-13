@@ -1,3 +1,5 @@
+<!-- Github links generated with: https://github.com/jprichardson/issue-links -->
+
 2.0.0 / 2016-05-12
 ------------------
 - Fixed incorrect exit code after Renderer failures See: [#60][#60]
@@ -109,6 +111,12 @@
 ------------------
 - initial release
 
+[#63]: https://github.com/jprichardson/electron-mocha/pull/63      "Remove Electron 0.x API calls / checks"
+[#62]: https://github.com/jprichardson/electron-mocha/pull/62      "Exits via app.exit()"
+[#61]: https://github.com/jprichardson/electron-mocha/issues/61    "npm test on windows"
+[#60]: https://github.com/jprichardson/electron-mocha/pull/60      "Fix exit code"
+[#59]: https://github.com/jprichardson/electron-mocha/issues/59    "Integration with Karma"
+[#58]: https://github.com/jprichardson/electron-mocha/pull/58      "Handle --compiler before --require options"
 [#57]: https://github.com/jprichardson/electron-mocha/issues/57    "Unexpected token import"
 [#56]: https://github.com/jprichardson/electron-mocha/pull/56      "window must be destroyed before electron exit"
 [#55]: https://github.com/jprichardson/electron-mocha/pull/55      "Fallback to local install of electron-prebuilt"
