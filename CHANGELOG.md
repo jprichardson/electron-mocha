@@ -1,5 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+2.0.1 / 2016-05-17
+------------------
+- Don't stop early if tests open/close windows
+
 2.0.0 / 2016-05-12
 ------------------
 - Fixed incorrect exit code after Renderer failures See: [#60][#60]

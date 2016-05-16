@@ -32,6 +32,11 @@ app.on('quit', function () {
   fs.removeSync(browserDataPath)
 })
 
+// do not quit if tests open and close windows
+app.on('will-quit', function (event) {
+  event.preventDefault()
+})
+
 app.on('ready', function () {
   if (!opts.renderer) {
     mocha.run(opts, count => app.exit(count))
