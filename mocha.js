@@ -22,7 +22,8 @@ function createFromArgs (args) {
   if (args.checkLeaks) mocha.checkLeaks()
   mocha.globals(args.globals)
 
-  mocha.useColors(true)
+  // --no-colors
+  mocha.useColors(args.colors)
 
   // default files to test/*.js
   var files = []

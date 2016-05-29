@@ -46,6 +46,7 @@ Usage: electron-mocha [options] [files]
 
     -h, --help             output usage information
     -V, --version          output the version number
+    -C, --no-colors        force disabling of colors
     -R, --reporter <name>  specify the reporter to use
     -S, --sort             sort test files
     -b, --bail             bail after first test failure

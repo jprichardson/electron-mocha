@@ -12,6 +12,7 @@ function parse (argv) {
   program
     .version(require('./package').version)
     .usage('[options] [files]')
+    .option('-C, --no-colors', 'force disabling of colors')
     .option('-R, --reporter <name>', 'specify the reporter to use', 'spec')
     .option('-S, --sort', 'sort test files')
     .option('-b, --bail', 'bail after first test failure')
