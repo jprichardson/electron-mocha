@@ -1,5 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+2.2.0 / 2016-05-30
+------------------
+- Add --no-colors option
+
 2.1.0 / 2016-05-17
 ------------------
 - Don't stop early if tests open/close windows
