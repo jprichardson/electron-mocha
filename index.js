@@ -24,22 +24,29 @@ getOptions()
 
 // parse args
 var opts = args.parse(process.argv)
+var shouldExit = false
+var failureCount = 0
 
 var browserDataPath = path.join(os.tmpdir(), 'electron-mocha-' + Date.now().toString())
 app.setPath('userData', browserDataPath)
 
 app.on('quit', function () {
   fs.removeSync(browserDataPath)
+  app.exit(failureCount)
 })
 
 // do not quit if tests open and close windows
 app.on('will-quit', function (event) {
-  event.preventDefault()
+  if (!shouldExit) {
+    event.preventDefault()
+  }
 })
 
 app.on('ready', function () {
   if (!opts.renderer) {
-    mocha.run(opts, count => app.exit(count))
+    mocha.run(opts, function (count) {
+      exitApp(count)
+    })
   } else {
     var win = window.createWindow({
       height: 700,
@@ -51,14 +58,20 @@ app.on('ready', function () {
     win._loadURLWithArgs(indexPath, opts, function () {})
     // win.showURL(indexPath, opts)
     ipc.on('mocha-done', function (event, code) {
-      app.exit(code)
+      exitApp(code)
     })
     ipc.on('mocha-error', function (event, data) {
       writeError(data)
-      app.exit(1)
+      exitApp(1)
     })
   }
 })
+
+function exitApp (count) {
+  failureCount = count
+  shouldExit = true
+  app.quit()
+}
 
 function writeError (data) {
   process.stderr.write(util.format('\nError encountered in %s: %s\n%s',
