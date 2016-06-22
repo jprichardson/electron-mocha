@@ -1,5 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+2.2.1 / 2016-06-22
+------------------
+- Close test window after --renderer tests have finished
+
 2.2.0 / 2016-05-30
 ------------------
 - Add --no-colors option
