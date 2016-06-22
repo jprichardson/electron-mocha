@@ -34,6 +34,10 @@ app.on('quit', function () {
 
 app.on('ready', function () {
   if (!opts.renderer) {
+    // do not quit if tests open and close windows
+    app.on('will-quit', event => {
+      event.preventDefault()
+    })
     mocha.run(opts, count => app.exit(count))
   } else {
     var win = window.createWindow({
