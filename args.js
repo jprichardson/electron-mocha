@@ -6,8 +6,6 @@ var resolve = path.resolve
 var cwd = process.cwd()
 
 function parse (argv) {
-  var globals = []
-
   program._name = 'electron-mocha'
   program
     .version(require('./package').version)
@@ -34,13 +32,9 @@ function parse (argv) {
     .option('--renderer', 'run tests in renderer process')
     .option('--preload <name>', 'preload the given script in renderer process', modules, [])
 
-  program.on('globals', function (val) {
-    globals = globals.concat(list(val))
-  })
-
   module.paths.push(cwd, join(cwd, 'node_modules'))
 
-  program.parse(process.argv)
+  program.parse(argv)
   var argData = JSON.parse(JSON.stringify(program))
   argData.files = argData.args
 
