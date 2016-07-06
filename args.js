@@ -23,6 +23,8 @@ function parse (argv) {
     .option('-u, --ui <name>', 'specify user-interface (bdd|tdd|exports)', 'bdd')
     .option('--check-leaks', 'check for global variable leaks')
     .option('--compilers <ext>:<module>,...', 'use the given module(s) to compile files', list, [])
+    .option('--debug', 'enable Electron debugger on port [5858]')
+    .option('--debug-brk', 'like --debug but pauses the script on the first line')
     .option('--globals <names>', 'allow the given comma-delimited global [names]', list, [])
     .option('--inline-diffs', 'display actual/expected differences inline within each string')
     .option('--interfaces', 'display available interfaces')
@@ -30,6 +32,8 @@ function parse (argv) {
     .option('--opts <path>', 'specify opts path', 'test/mocha.opts')
     .option('--recursive', 'include sub directories')
     .option('--renderer', 'run tests in renderer process')
+    .option('--renderer-debug', 'show window and dev-tools during renderer tests')
+    .option('--renderer-debug-brk', 'like --renderer-debug but pauses the script on first line inside renderer')
     .option('--preload <name>', 'preload the given script in renderer process', modules, [])
 
   module.paths.push(cwd, join(cwd, 'node_modules'))
@@ -37,6 +41,10 @@ function parse (argv) {
   program.parse(argv)
   var argData = JSON.parse(JSON.stringify(program))
   argData.files = argData.args
+
+  if (argData.rendererDebugBrk) {
+    argData.rendererDebug = true
+  }
 
   // delete unused
   ;['commands', 'options', '_execs', '_args', '_name', '_events', '_usage', '_version', '_eventsCount', 'args'].forEach(function (key) {

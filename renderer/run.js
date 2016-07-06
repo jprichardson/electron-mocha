@@ -24,7 +24,10 @@ opts.preload.forEach(function (script) {
   document.head.appendChild(tag)
 })
 
-window.addEventListener('load', function () {
+ipc.on('mocha-start', () => {
+  if (opts.rendererDebugBrk) {
+    debugger // eslint-disable-line no-debugger
+  }
   mocha.run(opts, function (failureCount) {
     ipc.send('mocha-done', failureCount)
   })
