@@ -59,6 +59,8 @@ Usage: electron-mocha [options] [files]
     -u, --ui <name>        specify user-interface (bdd|tdd|exports)
     --check-leaks          check for global variable leaks
     --compilers            use the given module(s) to compile files
+    --debug                enable Electron debugger on port [5858]
+    --debug-brk            like --debug but pauses the script on the first line
     --globals <names>      allow the given comma-delimited global [names]
     --inline-diffs         display actual/expected differences inline within each string
     --interfaces           display available interfaces
@@ -66,6 +68,8 @@ Usage: electron-mocha [options] [files]
     --opts <path>          specify opts path [test/mocha.opts]
     --recursive            include sub directories
     --renderer             run tests in renderer process
+    --renderer-debug       show window and dev-tools during renderer tests
+    --renderer-debug-brk   like --renderer-debug but pauses the script on first line inside renderer
     --preload <name>       preload the given script in renderer process
 
 ```
@@ -95,6 +99,10 @@ Your `.travis.yml` will need two extra lines of configuration to run this headle
 before_script:
   - export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start
 ```
+
+###  Debugger Support
+
+Use the `--debug` or `--debug-brk` options to enable Electron's debugger. Additionally, using `--renderer-debug` will enable the built-in debugger during your renderer tests, i.e., use that option in combination with a `debugger` statement anywhere in your tests or code to start debugging. Likewise, the `--renderer-debug-brk` option will automatically break immediately before running your renderer tests.
 
 Roadmap
 -------
