@@ -59,6 +59,8 @@ Usage: electron-mocha [options] [files]
     -u, --ui <name>        specify user-interface (bdd|tdd|exports)
     --check-leaks          check for global variable leaks
     --compilers            use the given module(s) to compile files
+    --debug                enable Electron debugger on port [5858]; for --renderer tests show window and dev-tools
+    --debug-brk            like --debug but pauses the script on the first line
     --globals <names>      allow the given comma-delimited global [names]
     --inline-diffs         display actual/expected differences inline within each string
     --interfaces           display available interfaces
@@ -95,6 +97,10 @@ Your `.travis.yml` will need two extra lines of configuration to run this headle
 before_script:
   - export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start
 ```
+
+###  Debugger Support
+
+Use the `--debug` or `--debug-brk` options to enable Electron's debugger. When using `--renderer` this will open the test window and open the dev-tools: use that option in combination with a `debugger` statement anywhere in your tests or code to start debugging.
 
 Roadmap
 -------

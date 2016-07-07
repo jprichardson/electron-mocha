@@ -23,6 +23,8 @@ function parse (argv) {
     .option('-u, --ui <name>', 'specify user-interface (bdd|tdd|exports)', 'bdd')
     .option('--check-leaks', 'check for global variable leaks')
     .option('--compilers <ext>:<module>,...', 'use the given module(s) to compile files', list, [])
+    .option('--debug', 'enable Electron debugger on port [5858]; for --renderer tests show window and dev-tools')
+    .option('--debug-brk', 'like --debug but pauses the script on the first line')
     .option('--globals <names>', 'allow the given comma-delimited global [names]', list, [])
     .option('--inline-diffs', 'display actual/expected differences inline within each string')
     .option('--interfaces', 'display available interfaces')
@@ -37,6 +39,10 @@ function parse (argv) {
   program.parse(argv)
   var argData = JSON.parse(JSON.stringify(program))
   argData.files = argData.args
+
+  if (argData.debugBrk) {
+    argData.debug = true
+  }
 
   // delete unused
   ;['commands', 'options', '_execs', '_args', '_name', '_events', '_usage', '_version', '_eventsCount', 'args'].forEach(function (key) {

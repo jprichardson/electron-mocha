@@ -24,7 +24,7 @@ opts.preload.forEach(function (script) {
   document.head.appendChild(tag)
 })
 
-window.addEventListener('load', function () {
+ipc.on('mocha-start', () => {
   mocha.run(opts, function (failureCount) {
     ipc.send('mocha-done', failureCount)
   })

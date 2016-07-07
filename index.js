@@ -45,6 +45,22 @@ app.on('ready', function () {
       width: 1200,
       webPreferences: { webSecurity: false }
     })
+
+    win.on('ready-to-show', () => {
+      if (opts.debug) {
+        win.show()
+        win.webContents.openDevTools()
+        win.webContents.on('devtools-opened', () => {
+          // Debugger is not immediately ready!
+          setTimeout(() => {
+            win.webContents.send('mocha-start')
+          }, 250)
+        })
+      } else {
+        win.webContents.send('mocha-start')
+      }
+    })
+
     var indexPath = path.resolve(path.join(__dirname, './renderer/index.html'))
     // undocumented call in electron-window
     win._loadURLWithArgs(indexPath, opts, function () {})
