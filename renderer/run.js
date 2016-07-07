@@ -25,9 +25,6 @@ opts.preload.forEach(function (script) {
 })
 
 ipc.on('mocha-start', () => {
-  if (opts.rendererDebugBrk) {
-    debugger // eslint-disable-line no-debugger
-  }
   mocha.run(opts, function (failureCount) {
     ipc.send('mocha-done', failureCount)
   })

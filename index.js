@@ -47,7 +47,7 @@ app.on('ready', function () {
     })
 
     win.on('ready-to-show', () => {
-      if (opts.rendererDebug) {
+      if (opts.debug) {
         win.show()
         win.webContents.openDevTools()
         win.webContents.on('devtools-opened', () => {
