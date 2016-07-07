@@ -1,5 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+2.3.0 / 2016-06-07
+------------------
+- Add --debug and --debug-brk options. See: [#70][#70]
+
 2.2.1 / 2016-06-22
 ------------------
 - Close test window after --renderer tests have finished
@@ -123,6 +127,8 @@
 ------------------
 - initial release
 
+
+[#70]: https://github.com/jprichardson/electron-mocha/pull/70      "Add debugger support"
 [#63]: https://github.com/jprichardson/electron-mocha/pull/63      "Remove Electron 0.x API calls / checks"
 [#62]: https://github.com/jprichardson/electron-mocha/pull/62      "Exits via app.exit()"
 [#61]: https://github.com/jprichardson/electron-mocha/issues/61    "npm test on windows"
