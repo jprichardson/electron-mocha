@@ -28,16 +28,15 @@ var opts = args.parse(process.argv)
 var browserDataPath = path.join(os.tmpdir(), 'electron-mocha-' + Date.now().toString())
 app.setPath('userData', browserDataPath)
 
-app.on('quit', function () {
+app.on('quit', () => {
   fs.removeSync(browserDataPath)
 })
 
+// do not quit if tests open and close windows
+app.on('window-all-closed', () => {})
+
 app.on('ready', function () {
   if (!opts.renderer) {
-    // do not quit if tests open and close windows
-    app.on('will-quit', event => {
-      event.preventDefault()
-    })
     mocha.run(opts, count => app.exit(count))
   } else {
     var win = window.createWindow({
