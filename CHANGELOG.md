@@ -1,6 +1,11 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
-2.3.0 / 2016-06-07
+2.3.1 / 2016-07-13
+------------------
+- Listen and ignore 'window-all-closed' instead of aborting 'will-quit'
+- Use fs.mkdtemp to create temporary workspace
+
+2.3.0 / 2016-07-06
 ------------------
 - Add --debug and --debug-brk options. See: [#70][#70]
 
