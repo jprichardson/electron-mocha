@@ -1,3 +1,5 @@
+'use strict'
+
 var fs = require('fs-extra')
 var path = require('path')
 var window = require('electron-window')
@@ -7,12 +9,7 @@ var mocha = require('./mocha')
 var util = require('util')
 var { app, ipcMain: ipc } = require('electron')
 
-// these were suppose to do something, but they don't
-// https://github.com/atom/electron/blob/master/docs/api/chrome-command-line-switches.md#--vlog_level
-// app.commandLine.appendSwitch('v', -1)
-// app.commandLine.appendSwitch('vmodule', 'console=0')
-
-process.on('uncaughtException', function (err) {
+process.on('uncaughtException', (err) => {
   console.error(err)
   console.error(err.stack)
   app.exit(1)
@@ -34,7 +31,7 @@ app.on('quit', () => {
 // do not quit if tests open and close windows
 app.on('window-all-closed', () => {})
 
-app.on('ready', function () {
+app.on('ready', () => {
   if (!opts.renderer) {
     mocha.run(opts, count => app.exit(count))
   } else {
@@ -61,13 +58,13 @@ app.on('ready', function () {
 
     var indexPath = path.resolve(path.join(__dirname, './renderer/index.html'))
     // undocumented call in electron-window
-    win._loadURLWithArgs(indexPath, opts, function () {})
+    win._loadURLWithArgs(indexPath, opts, () => {})
     // win.showURL(indexPath, opts)
-    ipc.on('mocha-done', function (event, count) {
+    ipc.on('mocha-done', (event, count) => {
       win.on('closed', () => app.exit(count))
       win.close()
     })
-    ipc.on('mocha-error', function (event, data) {
+    ipc.on('mocha-error', (event, data) => {
       writeError(data)
       app.exit(1)
     })
