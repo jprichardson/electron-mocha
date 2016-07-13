@@ -1,6 +1,5 @@
 var fs = require('fs-extra')
 var path = require('path')
-var os = require('os')
 var window = require('electron-window')
 var getOptions = require('mocha/bin/options')
 var args = require('./args')
@@ -25,11 +24,11 @@ getOptions()
 // parse args
 var opts = args.parse(process.argv)
 
-var browserDataPath = path.join(os.tmpdir(), 'electron-mocha-' + Date.now().toString())
-app.setPath('userData', browserDataPath)
+var tmpdir = fs.mkdtempSync(path.join(app.getPath('temp'), 'electron-mocha-'))
+app.setPath('userData', tmpdir)
 
 app.on('quit', () => {
-  fs.removeSync(browserDataPath)
+  fs.removeSync(tmpdir)
 })
 
 // do not quit if tests open and close windows
