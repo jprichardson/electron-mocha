@@ -1,5 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+3.0.0 / 2016-08-01
+------------------
+- Update to Mocha 3.0.0
+
 2.3.1 / 2016-07-13
 ------------------
 - Listen and ignore 'window-all-closed' instead of aborting 'will-quit'
