@@ -5,7 +5,7 @@ var spawn = require('child_process').spawn
 var which = require('which')
 
 which('electron', function (err, electron) {
-  electron = electron || process.env.ELECTRON_PATH
+  electron = process.env.ELECTRON_PATH || electron
 
   if (!electron) {
     try {
