@@ -1,5 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+3.0.1 / 2016-08-16
+------------------
+- Prefer $ELECTRON_PATH over locally installed electron. See: [#73][#75]
+
 3.0.0 / 2016-08-01
 ------------------
 - Update to Mocha 3.0.0
@@ -137,6 +141,7 @@
 - initial release
 
 
+[#73]: https://github.com/jprichardson/electron-mocha/pull/73      "Specify alternative electron version to run tests with"
 [#70]: https://github.com/jprichardson/electron-mocha/pull/70      "Add debugger support"
 [#63]: https://github.com/jprichardson/electron-mocha/pull/63      "Remove Electron 0.x API calls / checks"
 [#62]: https://github.com/jprichardson/electron-mocha/pull/62      "Exits via app.exit()"
