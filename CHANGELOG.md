@@ -1,5 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+3.0.4 / 2016-08-18
+------------------
+- Fix support for Node 4/5
+
 3.0.3 / 2016-08-18
 ------------------
 - Remove superfluous debug statement
