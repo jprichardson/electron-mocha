@@ -4,23 +4,29 @@ var path = require('path')
 var spawn = require('child_process').spawn
 var which = require('which')
 
-which('electron', function (err, electron) {
-  electron = process.env.ELECTRON_PATH || electron
+var electron = process.env.ELECTRON_PATH ||
+  resolve('electron') || resolve('electron-prebuilt') ||
+  resolve('electron', which.sync)
 
-  if (!electron) {
-    try {
-      electron = require('electron-prebuilt')
-    } catch (_) {
-      console.error('')
-      console.error('  Can not find `electron` in the $PATH and $ELECTRON_PATH is not set.')
-      console.error('  Please either set $ELECTRON_PATH or `npm install electron-prebuilt`.')
-      console.error('')
-      process.exit(1)
-    }
+if (!electron) {
+  console.error('')
+  console.error('  Can not find `electron` in the $PATH and $ELECTRON_PATH is not set.')
+  console.error('  Please either set $ELECTRON_PATH or `npm install electron`.')
+  console.error('')
+  process.exit(1)
+}
+
+console.log(electron)
+run(electron)
+
+
+function resolve(module, resolver = require) {
+  try {
+    return resolver(module)
+  } catch (_) {
+    // ignore
   }
-
-  run(electron)
-})
+}
 
 function run (electron) {
   var args = process.argv.slice(2)
