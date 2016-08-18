@@ -1,5 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+3.0.3 / 2016-08-18
+------------------
+- Remove superfluous debug statement
+
 3.0.2 / 2016-08-18
 ------------------
 - Support electron npm package
