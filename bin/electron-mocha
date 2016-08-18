@@ -16,7 +16,6 @@ if (!electron) {
   process.exit(1)
 }
 
-console.log(electron)
 run(electron)
 
 
