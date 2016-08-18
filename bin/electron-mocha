@@ -19,9 +19,9 @@ if (!electron) {
 run(electron)
 
 
-function resolve(module, resolver = require) {
+function resolve(module, resolver) {
   try {
-    return resolver(module)
+    return (resolver || require)(module)
   } catch (_) {
     // ignore
   }
