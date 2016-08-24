@@ -61,7 +61,7 @@ app.on('ready', () => {
     win._loadURLWithArgs(indexPath, opts, () => {})
     // win.showURL(indexPath, opts)
     ipc.on('mocha-done', (event, count) => {
-      win.on('closed', () => app.exit(count))
+      win.webContents.once('destroyed', () => app.exit(count))
       win.close()
     })
     ipc.on('mocha-error', (event, data) => {
