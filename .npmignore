@@ -1,0 +1,4 @@
+test/
+.npmignore
+.travis.yml
+appveyor.yml
