@@ -1,6 +1,7 @@
 electron-mocha
 ==============
 [![Build Status](https://travis-ci.org/jprichardson/electron-mocha.svg?branch=master)](https://travis-ci.org/jprichardson/electron-mocha)
+[![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/jprichardson/electron-mocha?branch=master&svg=true)](https://ci.appveyor.com/project/jprichardson/electron-mocha)
 [![npm](https://img.shields.io/npm/v/electron-mocha.svg?maxAge=2592000)]()
 
 Mocha testing in [Electron](http://electron.atom.io/). This project has
