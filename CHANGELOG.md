@@ -1,5 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+3.0.5 / 2016-08-24
+------------------
+- Exit after webContents destroyed event fires. See: [#78][#78] and [#77][#77]
+
 3.0.4 / 2016-08-18
 ------------------
 - Fix support for Node 4/5
@@ -153,6 +157,8 @@
 - initial release
 
 
+[#78]: https://github.com/jprichardson/electron-mocha/pull/78      "Exit after webContents destroyed event fires"
+[#77]: https://github.com/jprichardson/electron-mocha/pull/77      "electron mocha tempi dir locked; unlink error"
 [#73]: https://github.com/jprichardson/electron-mocha/pull/73      "Specify alternative electron version to run tests with"
 [#70]: https://github.com/jprichardson/electron-mocha/pull/70      "Add debugger support"
 [#63]: https://github.com/jprichardson/electron-mocha/pull/63      "Remove Electron 0.x API calls / checks"
