@@ -2,8 +2,8 @@ var assert = require('assert')
 
 /* global describe it */
 
-describe('describe: test 1', function () {
-  it('it: test 1', function () {
-    assert(true)
+describe('electron-mocha', function () {
+  it('runs in main process by default', function () {
+    assert.strictEqual(process.type, 'browser')
   })
 })
