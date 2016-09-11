@@ -1,5 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+3.0.6 / 2016-09-11
+------------------
+- Do not foucs test window. See: [#83][#83]
+
 3.0.5 / 2016-08-24
 ------------------
 - Exit after webContents destroyed event fires. See: [#78][#78] and [#77][#77]
@@ -157,6 +161,7 @@
 - initial release
 
 
+[#83]: https://github.com/jprichardson/electron-mocha/pull/83      "Prevent electron-mocha stealing focus from other applications"
 [#78]: https://github.com/jprichardson/electron-mocha/pull/78      "Exit after webContents destroyed event fires"
 [#77]: https://github.com/jprichardson/electron-mocha/pull/77      "electron mocha tempi dir locked; unlink error"
 [#73]: https://github.com/jprichardson/electron-mocha/pull/73      "Specify alternative electron version to run tests with"
