@@ -38,8 +38,13 @@ app.on('ready', () => {
     var win = window.createWindow({
       height: 700,
       width: 1200,
+      focusable: false,
       webPreferences: { webSecurity: false }
     })
+
+    if (process.platform === 'darwin') {
+      app.dock.hide()
+    }
 
     win.on('ready-to-show', () => {
       if (opts.debug) {
