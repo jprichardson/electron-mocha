@@ -1,8 +1,12 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+3.1.0 / 2016-09-14
+------------------
+- Add --require-main option. See: [#84][#84]
+
 3.0.6 / 2016-09-11
 ------------------
-- Do not foucs test window. See: [#83][#83]
+- Do not focus test window. See: [#83][#83]
 
 3.0.5 / 2016-08-24
 ------------------
@@ -161,6 +165,7 @@
 - initial release
 
 
+[#84]: https://github.com/jprichardson/electron-mocha/pull/84      "Add a --require-main option"
 [#83]: https://github.com/jprichardson/electron-mocha/pull/83      "Prevent electron-mocha stealing focus from other applications"
 [#78]: https://github.com/jprichardson/electron-mocha/pull/78      "Exit after webContents destroyed event fires"
 [#77]: https://github.com/jprichardson/electron-mocha/pull/77      "electron mocha tempi dir locked; unlink error"
