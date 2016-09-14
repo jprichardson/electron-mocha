@@ -72,6 +72,7 @@ Usage: electron-mocha [options] [files]
     --recursive            include sub directories
     --renderer             run tests in renderer process
     --preload <name>       preload the given script in renderer process
+    --require-main <name>  load the given script in main process before executing tests
 
 ```
 

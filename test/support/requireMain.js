@@ -1,0 +1,1 @@
+global.requiredMain = true

@@ -32,6 +32,9 @@ app.on('quit', () => {
 app.on('window-all-closed', () => {})
 
 app.on('ready', () => {
+  if (opts.requireMain.length === 1) {
+    require(opts.requireMain[0])
+  }
   if (!opts.renderer) {
     mocha.run(opts, count => app.exit(count))
   } else {
