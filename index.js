@@ -41,11 +41,11 @@ app.on('ready', () => {
     var win = window.createWindow({
       height: 700,
       width: 1200,
-      focusable: false,
+      focusable: opts.debug,
       webPreferences: { webSecurity: false }
     })
 
-    if (process.platform === 'darwin') {
+    if (!opts.debug && process.platform === 'darwin') {
       app.dock.hide()
     }
 
