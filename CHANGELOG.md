@@ -1,5 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+3.1.1 / 2016-09-27
+------------------
+- Allow window focus when using --debug-brk
+
 3.1.0 / 2016-09-14
 ------------------
 - Add --require-main option. See: [#84][#84]
