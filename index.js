@@ -35,6 +35,13 @@ app.on('ready', () => {
   if (opts.requireMain.length === 1) {
     require(opts.requireMain[0])
   }
+
+  if (opts.interactive) {
+    opts.renderer = true
+    opts.debug = true
+    opts.colors = false
+  }
+
   if (!opts.renderer) {
     mocha.run(opts, count => app.exit(count))
   } else {
@@ -70,7 +77,9 @@ app.on('ready', () => {
     // win.showURL(indexPath, opts)
     ipc.on('mocha-done', (event, count) => {
       win.webContents.once('destroyed', () => app.exit(count))
-      win.close()
+      if (!opts.interactive) {
+        win.close()
+      }
     })
     ipc.on('mocha-error', (event, data) => {
       writeError(data)
