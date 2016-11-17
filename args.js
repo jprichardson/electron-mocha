@@ -27,12 +27,12 @@ function parse (argv) {
     .option('--debug-brk', 'like --debug but pauses the script on the first line')
     .option('--globals <names>', 'allow the given comma-delimited global [names]', list, [])
     .option('--inline-diffs', 'display actual/expected differences inline within each string')
+    .option('--interactive', 'run tests in renderer process in a visible window that can be reloaded to re-run tests')
     .option('--interfaces', 'display available interfaces')
     .option('--no-timeouts', 'disables timeouts')
     .option('--opts <path>', 'specify opts path', 'test/mocha.opts')
     .option('--recursive', 'include sub directories')
     .option('--renderer', 'run tests in renderer process')
-    .option('--interactive', 'run tests in renderer process in a visible window that can be reloaded to re-run tests')
     .option('--preload <name>', 'preload the given script in renderer process', modules, [])
     .option('--require-main <name>', 'load the given script in main process before executing tests', modules, [])
 

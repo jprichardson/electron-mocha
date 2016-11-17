@@ -1,5 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+3.2.0 / 2016-11-17
+------------------
+- Add --interactive options. See: [#91][#91]
+
 3.1.1 / 2016-09-27
 ------------------
 - Allow window focus when using --debug-brk
@@ -169,6 +173,7 @@
 - initial release
 
 
+[#91]: https://github.com/jprichardson/electron-mocha/pull/91      "Add a `--interactive` mode"
 [#84]: https://github.com/jprichardson/electron-mocha/pull/84      "Add a --require-main option"
 [#83]: https://github.com/jprichardson/electron-mocha/pull/83      "Prevent electron-mocha stealing focus from other applications"
 [#78]: https://github.com/jprichardson/electron-mocha/pull/78      "Exit after webContents destroyed event fires"

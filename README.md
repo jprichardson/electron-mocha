@@ -66,6 +66,7 @@ Usage: electron-mocha [options] [files]
     --debug-brk            like --debug but pauses the script on the first line
     --globals <names>      allow the given comma-delimited global [names]
     --inline-diffs         display actual/expected differences inline within each string
+    --interactive          run tests in renderer process in a visible window that can be reloaded to re-run tests
     --interfaces           display available interfaces
     --no-timeouts          disables timeouts
     --opts <path>          specify opts path [test/mocha.opts]
