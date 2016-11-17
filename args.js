@@ -32,6 +32,7 @@ function parse (argv) {
     .option('--opts <path>', 'specify opts path', 'test/mocha.opts')
     .option('--recursive', 'include sub directories')
     .option('--renderer', 'run tests in renderer process')
+    .option('--interactive', 'run tests in renderer process in a visible window that can be reloaded to re-run tests')
     .option('--preload <name>', 'preload the given script in renderer process', modules, [])
     .option('--require-main <name>', 'load the given script in main process before executing tests', modules, [])
 

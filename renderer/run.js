@@ -1,4 +1,9 @@
-require('./console')
+var opts = window.__args__
+
+if (!opts.interactive) {
+  require('./console')
+}
+
 var mocha = require('../mocha')
 var { ipcRenderer: ipc } = require('electron')
 
@@ -14,7 +19,6 @@ window.onerror = function (message, filename, lineno, colno, err) {
   })
 }
 
-var opts = window.__args__
 // console.log(JSON.stringify(opts, null, 2))
 
 opts.preload.forEach(function (script) {
