@@ -6,14 +6,7 @@ var window = require('electron-window')
 var getOptions = require('mocha/bin/options')
 var args = require('./args')
 var mocha = require('./mocha')
-var util = require('util')
 var { app, ipcMain: ipc } = require('electron')
-
-process.on('uncaughtException', (err) => {
-  console.error(err)
-  console.error(err.stack)
-  app.exit(1)
-})
 
 // load mocha.opts into process.argv
 getOptions()
@@ -81,16 +74,5 @@ app.on('ready', () => {
         win.close()
       }
     })
-    ipc.on('mocha-error', (event, data) => {
-      writeError(data)
-      app.exit(1)
-    })
   }
 })
-
-function writeError (data) {
-  process.stderr.write(util.format('\nError encountered in %s: %s\n%s',
-    path.relative(process.cwd(), data.filename),
-    data.message,
-    data.stack))
-}
