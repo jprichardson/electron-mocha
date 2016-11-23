@@ -12,15 +12,29 @@ window.mocha = require('mocha')
 
 // console.log(JSON.stringify(opts, null, 2))
 
-opts.preload.forEach(function (script) {
-  var tag = document.createElement('script')
-  tag.src = script
-  tag.async = false
-  document.head.appendChild(tag)
-})
+try {
+  opts.preload.forEach(function (script) {
+    var tag = document.createElement('script')
+    tag.src = script
+    tag.async = false
+    document.head.appendChild(tag)
+  })
+} catch (error) {
+  ipc.send('mocha-error', {
+    message: error.message,
+    stack: error.stack
+  })
+}
 
 ipc.on('mocha-start', () => {
-  mocha.run(opts, function (failureCount) {
-    ipc.send('mocha-done', failureCount)
-  })
+  try {
+    mocha.run(opts, function (failureCount) {
+      ipc.send('mocha-done', failureCount)
+    })
+  } catch (error) {
+    ipc.send('mocha-error', {
+      message: error.message,
+      stack: error.stack
+    })
+  }
 })

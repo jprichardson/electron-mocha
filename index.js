@@ -26,7 +26,11 @@ app.on('window-all-closed', () => {})
 
 app.on('ready', () => {
   if (opts.requireMain.length === 1) {
-    require(opts.requireMain[0])
+    try {
+      require(opts.requireMain[0])
+    } catch (error) {
+      fail(error)
+    }
   }
 
   if (opts.interactive) {
@@ -36,7 +40,11 @@ app.on('ready', () => {
   }
 
   if (!opts.renderer) {
-    mocha.run(opts, count => app.exit(count))
+    try {
+      mocha.run(opts, count => app.exit(count))
+    } catch (error) {
+      fail(error)
+    }
   } else {
     var win = window.createWindow({
       height: 700,
@@ -74,5 +82,12 @@ app.on('ready', () => {
         win.close()
       }
     })
+    ipc.on('mocha-error', (_, error) => fail(error))
   }
 })
+
+function fail (error) {
+  console.error(error.message)
+  console.error(error.stack)
+  app.exit(1)
+}
