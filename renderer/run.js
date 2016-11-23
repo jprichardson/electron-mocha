@@ -10,15 +10,6 @@ var { ipcRenderer: ipc } = require('electron')
 // Expose mocha
 window.mocha = require('mocha')
 
-window.onerror = function (message, filename, lineno, colno, err) {
-  ipc.send('mocha-error', {
-    message: message,
-    filename: filename,
-    err: err,
-    stack: err.stack
-  })
-}
-
 // console.log(JSON.stringify(opts, null, 2))
 
 opts.preload.forEach(function (script) {
