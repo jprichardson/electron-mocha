@@ -1,5 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+3.2.1 / 2016-11-23
+------------------
+- No exit on uncaught errors during test runs. See: [#93][#93] and [#94][#94]
+
 3.2.0 / 2016-11-17
 ------------------
 - Add --interactive options. See: [#91][#91]
@@ -173,13 +177,37 @@
 - initial release
 
 
-[#91]: https://github.com/jprichardson/electron-mocha/pull/91      "Add a `--interactive` mode"
+[#94]: https://github.com/jprichardson/electron-mocha/pull/94      "Remove uncaught exception errors"
+[#93]: https://github.com/jprichardson/electron-mocha/issues/93    "Assert not caught in async tests"
+[#92]: https://github.com/jprichardson/electron-mocha/issues/92    "Allow renderer process testing in electron-mocha"
+[#91]: https://github.com/jprichardson/electron-mocha/pull/91      "Add `--interactive` mode"
+[#90]: https://github.com/jprichardson/electron-mocha/issues/90    "html files, like mocha-phantomjs?"
+[#89]: https://github.com/jprichardson/electron-mocha/issues/89    "Debugging main process"
+[#88]: https://github.com/jprichardson/electron-mocha/issues/88    "Debugging unit tests"
+[#87]: https://github.com/jprichardson/electron-mocha/pull/87      "Allow focus when debugging tests"
+[#86]: https://github.com/jprichardson/electron-mocha/issues/86    "Debugging no longer has access to to full dev tools"
+[#85]: https://github.com/jprichardson/electron-mocha/issues/85    "Unexpected token import"
 [#84]: https://github.com/jprichardson/electron-mocha/pull/84      "Add a --require-main option"
 [#83]: https://github.com/jprichardson/electron-mocha/pull/83      "Prevent electron-mocha stealing focus from other applications"
+[#82]: https://github.com/jprichardson/electron-mocha/issues/82    "Running tests steals focus from Terminal"
+[#81]: https://github.com/jprichardson/electron-mocha/issues/81    "Mocha requires Electron to be installed globally"
+[#80]: https://github.com/jprichardson/electron-mocha/issues/80    "support for `--watch`"
+[#79]: https://github.com/jprichardson/electron-mocha/pull/79      "Add .npmignore file"
 [#78]: https://github.com/jprichardson/electron-mocha/pull/78      "Exit after webContents destroyed event fires"
-[#77]: https://github.com/jprichardson/electron-mocha/pull/77      "electron mocha tempi dir locked; unlink error"
-[#73]: https://github.com/jprichardson/electron-mocha/pull/73      "Specify alternative electron version to run tests with"
+[#77]: https://github.com/jprichardson/electron-mocha/issues/77    "electron mocha temp dir locked; unlink error"
+[#76]: https://github.com/jprichardson/electron-mocha/issues/76    "Latest update broke support on Node.JS v4 and v5"
+[#75]: https://github.com/jprichardson/electron-mocha/issues/75    "Workspaces on Mac OS X"
+[#74]: https://github.com/jprichardson/electron-mocha/issues/74    "Module version mismatch"
+[#73]: https://github.com/jprichardson/electron-mocha/issues/73    "Specify alternative electron version to run tests with"
+[#72]: https://github.com/jprichardson/electron-mocha/issues/72    "Travis CI Failing ( tried readme fix )"
+[#71]: https://github.com/jprichardson/electron-mocha/issues/71    "Not working, or not what I think it is?"
 [#70]: https://github.com/jprichardson/electron-mocha/pull/70      "Add debugger support"
+[#69]: https://github.com/jprichardson/electron-mocha/issues/69    "Source maps support?"
+[#68]: https://github.com/jprichardson/electron-mocha/issues/68    "debugging tests in electron-mocha wit Visual Studio Code"
+[#67]: https://github.com/jprichardson/electron-mocha/pull/67      "app.exit is not exiting all processes sometimes"
+[#66]: https://github.com/jprichardson/electron-mocha/issues/66    "Hangs on Electron 1.2.0"
+[#65]: https://github.com/jprichardson/electron-mocha/issues/65    "Can't resolve 'electron'"
+[#64]: https://github.com/jprichardson/electron-mocha/issues/64    "Mocking BrowserWindow"
 [#63]: https://github.com/jprichardson/electron-mocha/pull/63      "Remove Electron 0.x API calls / checks"
 [#62]: https://github.com/jprichardson/electron-mocha/pull/62      "Exits via app.exit()"
 [#61]: https://github.com/jprichardson/electron-mocha/issues/61    "npm test on windows"
@@ -243,3 +271,4 @@
 [#3]: https://github.com/jprichardson/electron-mocha/issues/3      "Renderer test hang indefinitely"
 [#2]: https://github.com/jprichardson/electron-mocha/issues/2      "Get this working in Travis-CI"
 [#1]: https://github.com/jprichardson/electron-mocha/issues/1      "Set exit code (dependent upon Electron fix)"
+
