@@ -25,7 +25,7 @@ Usage
 
 First, you need to install Electron. You can either run:
 
-    npm i -g electron-prebuilt
+    npm i -g electron
 
 and then `electron` will be added to your path. Or, you
 can download a version from https://github.com/atom/electron/releases and
@@ -105,7 +105,9 @@ before_script:
 
 ###  Debugger Support
 
-Use the `--debug` or `--debug-brk` options to enable Electron's debugger. When using `--renderer` this will open the test window and open the dev-tools: use that option in combination with a `debugger` statement anywhere in your tests or code to start debugging.
+Use the `--debug` or `--debug-brk` options to enable Electron's debugger. When using `--renderer` this will open the test window and open the dev-tools. Note that the window will close automatically when the tests have finished, therefore this option should be used in combination with `debugger` statements anywhere in your tests or code. Alternatively, you can use the `--interactive` option which will keep the window open after your tests have run (you can reload the window to run the tests again) -- this gives you the opportunity to set breakpoints using the dev-tools debugger.
+
+To debug the main process (i.e., if you run your tests without the `--renderer` option), you will need to start an external debugger. For more details, see [Electron's documentation](http://electron.atom.io/docs/tutorial/debugging-main-process/).
 
 Roadmap
 -------
