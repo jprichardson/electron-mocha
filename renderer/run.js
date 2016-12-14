@@ -26,6 +26,8 @@ try {
   })
 }
 
+ipc.send('mocha-ready-to-run')
+
 ipc.on('mocha-start', () => {
   try {
     mocha.run(opts, function (failureCount) {

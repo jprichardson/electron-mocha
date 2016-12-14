@@ -57,7 +57,9 @@ app.on('ready', () => {
       app.dock.hide()
     }
 
-    win.on('ready-to-show', () => {
+    var firstRun = true
+    win.once('ready-to-show', () => {
+      firstRun = false
       if (opts.debug) {
         win.show()
         win.webContents.openDevTools()
@@ -68,6 +70,12 @@ app.on('ready', () => {
           }, 250)
         })
       } else {
+        win.webContents.send('mocha-start')
+      }
+    })
+
+    ipc.on('mocha-ready-to-run', () => {
+      if (!firstRun) {
         win.webContents.send('mocha-start')
       }
     })
