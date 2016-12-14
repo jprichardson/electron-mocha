@@ -24,8 +24,6 @@ try {
   })
 }
 
-ipc.send('mocha-ready-to-run')
-
 ipc.on('mocha-start', () => {
   try {
     mocha.run(opts, (...args) => {
@@ -35,3 +33,6 @@ ipc.on('mocha-start', () => {
     ipc.send('mocha-error', { message, stack })
   }
 })
+
+// Request re-run on reload in --interactive mode
+ipc.send('mocha-ready-to-run')

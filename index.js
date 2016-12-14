@@ -57,9 +57,7 @@ app.on('ready', () => {
       app.dock.hide()
     }
 
-    let firstRun = true
-    win.once('ready-to-show', () => {
-      firstRun = false
+    win.webContents.once('did-finish-load', () => {
       if (opts.debug) {
         win.show()
         win.webContents.openDevTools()
@@ -69,13 +67,12 @@ app.on('ready', () => {
             win.webContents.send('mocha-start')
           }, 250)
         })
-      } else {
-        win.webContents.send('mocha-start')
-      }
-    })
 
-    ipc.on('mocha-ready-to-run', () => {
-      if (!firstRun) {
+        // Called on reload in --interactive mode
+        ipc.on('mocha-ready-to-run', () => {
+          win.webContents.send('mocha-start')
+        })
+      } else {
         win.webContents.send('mocha-start')
       }
     })
