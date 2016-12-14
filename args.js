@@ -1,9 +1,7 @@
-var fs = require('fs')
-var path = require('path')
-var program = require('commander')
-var join = path.join
-var resolve = path.resolve
-var cwd = process.cwd()
+const fs = require('fs')
+const { join, resolve } = require('path')
+const program = require('commander')
+const cwd = process.cwd()
 
 function parse (argv) {
   program._name = 'electron-mocha'
@@ -39,7 +37,7 @@ function parse (argv) {
   module.paths.push(cwd, join(cwd, 'node_modules'))
 
   program.parse(argv)
-  var argData = JSON.parse(JSON.stringify(program))
+  const argData = JSON.parse(JSON.stringify(program))
   argData.files = argData.args
 
   if (argData.debugBrk) {
@@ -59,12 +57,12 @@ function list (str) {
 }
 
 function modules (mod, memo) {
-  var abs = fs.existsSync(mod) || fs.existsSync(mod + '.js')
+  const abs = fs.existsSync(mod) || fs.existsSync(mod + '.js')
   if (abs) mod = resolve(mod)
   memo.push(mod)
   return memo
 }
 
 module.exports = {
-  parse: parse
+  parse
 }

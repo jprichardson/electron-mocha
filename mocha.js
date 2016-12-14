@@ -1,9 +1,9 @@
-var Mocha = require('mocha')
-var path = require('path')
+const Mocha = require('mocha')
+const { join, resolve } = require('path')
 
 function createFromArgs (args) {
-  var utils = Mocha.utils
-  var mocha = new Mocha()
+  const utils = Mocha.utils
+  const mocha = new Mocha()
 
   // infinite stack traces (this was pulled from Mocha source, may not be necessary)
   Error.stackTraceLimit = Infinity
@@ -26,30 +26,26 @@ function createFromArgs (args) {
   mocha.useColors(args.colors)
 
   // default files to test/*.js
-  var files = []
-  var extensions = ['js']
+  let files = []
+  const extensions = ['js']
   if (!args.files.length) args.files.push('test')
-  args.files.forEach(function (arg) {
+  args.files.forEach((arg) => {
     files = files.concat(utils.lookupFiles(arg, extensions, args.recursive))
   })
 
-  args.compilers.forEach(function (c) {
-    var compiler = c.split(':')
-    var ext = compiler[0]
-    var mod = compiler[1]
+  args.compilers.forEach((compilers) => {
+    let [ext, mod] = compilers.split(':')
 
-    if (mod[0] === '.') mod = path.join(process.cwd(), mod)
+    if (mod[0] === '.') mod = join(process.cwd(), mod)
     require(mod)
     extensions.push(ext)
   })
 
-  args.require.forEach(function (mod) {
+  args.require.forEach((mod) => {
     require(mod)
   })
 
-  files = files.map(function (f) {
-    return path.resolve(f)
-  })
+  files = files.map((file) => resolve(file))
 
   if (args.sort) {
     files.sort()
@@ -61,12 +57,12 @@ function createFromArgs (args) {
 }
 
 function run (args, callback) {
-  var mocha = createFromArgs(args)
-  /* var runner = */ mocha.run(callback)
+  const mocha = createFromArgs(args)
+  /* const runner = */ mocha.run(callback)
   // process.on('SIGINT', function () { runner.abort() })
 }
 
 module.exports = {
-  createFromArgs: createFromArgs,
-  run: run
+  createFromArgs,
+  run
 }

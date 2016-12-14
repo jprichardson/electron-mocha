@@ -1,20 +1,20 @@
 'use strict'
 
-var fs = require('fs-extra')
-var path = require('path')
-var window = require('electron-window')
-var getOptions = require('mocha/bin/options')
-var args = require('./args')
-var mocha = require('./mocha')
-var { app, ipcMain: ipc } = require('electron')
+const fs = require('fs-extra')
+const { join, resolve } = require('path')
+const window = require('electron-window')
+const getOptions = require('mocha/bin/options')
+const args = require('./args')
+const mocha = require('./mocha')
+const { app, ipcMain: ipc } = require('electron')
 
 // load mocha.opts into process.argv
 getOptions()
 
 // parse args
-var opts = args.parse(process.argv)
+const opts = args.parse(process.argv)
 
-var tmpdir = fs.mkdtempSync(path.join(app.getPath('temp'), 'electron-mocha-'))
+const tmpdir = fs.mkdtempSync(join(app.getPath('temp'), 'electron-mocha-'))
 app.setPath('userData', tmpdir)
 
 app.on('quit', () => {
@@ -46,7 +46,7 @@ app.on('ready', () => {
       fail(error)
     }
   } else {
-    var win = window.createWindow({
+    const win = window.createWindow({
       height: 700,
       width: 1200,
       focusable: opts.debug,
@@ -57,7 +57,7 @@ app.on('ready', () => {
       app.dock.hide()
     }
 
-    var firstRun = true
+    let firstRun = true
     win.once('ready-to-show', () => {
       firstRun = false
       if (opts.debug) {
@@ -80,7 +80,7 @@ app.on('ready', () => {
       }
     })
 
-    var indexPath = path.resolve(path.join(__dirname, './renderer/index.html'))
+    const indexPath = resolve(join(__dirname, './renderer/index.html'))
     // undocumented call in electron-window
     win._loadURLWithArgs(indexPath, opts, () => {})
     // win.showURL(indexPath, opts)

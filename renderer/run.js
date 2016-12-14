@@ -1,20 +1,18 @@
-var opts = window.__args__
+const opts = window.__args__
 
 if (!opts.interactive) {
   require('./console')
 }
 
-var mocha = require('../mocha')
-var { ipcRenderer: ipc } = require('electron')
+const mocha = require('../mocha')
+const { ipcRenderer: ipc } = require('electron')
 
 // Expose mocha
 window.mocha = require('mocha')
 
-// console.log(JSON.stringify(opts, null, 2))
-
 try {
-  opts.preload.forEach(function (script) {
-    var tag = document.createElement('script')
+  opts.preload.forEach((script) => {
+    const tag = document.createElement('script')
     tag.src = script
     tag.async = false
     document.head.appendChild(tag)
@@ -30,13 +28,10 @@ ipc.send('mocha-ready-to-run')
 
 ipc.on('mocha-start', () => {
   try {
-    mocha.run(opts, function (failureCount) {
-      ipc.send('mocha-done', failureCount)
+    mocha.run(opts, (...args) => {
+      ipc.send('mocha-done', ...args)
     })
-  } catch (error) {
-    ipc.send('mocha-error', {
-      message: error.message,
-      stack: error.stack
-    })
+  } catch ({ message, stack }) {
+    ipc.send('mocha-error', { message, stack })
   }
 })
