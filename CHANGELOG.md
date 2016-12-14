@@ -1,8 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
-3.2.2 / 2016-12-14
+3.3.0 / 2016-12-14
 ------------------
 - Fix --interactive move. See: [#97][#97]
+- Use ES6 consistently
 
 3.2.1 / 2016-11-23
 ------------------
