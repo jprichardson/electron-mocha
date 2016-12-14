@@ -1,5 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+3.2.2 / 2016-12-14
+------------------
+- Fix --interactive move. See: [#97][#97]
+
 3.2.1 / 2016-11-23
 ------------------
 - No exit on uncaught errors during test runs. See: [#93][#93] and [#94][#94]
@@ -177,6 +181,7 @@
 - initial release
 
 
+[#97]: https://github.com/jprichardson/electron-mocha/pull/97      "Trigger 'mocha-start' on page reload"
 [#94]: https://github.com/jprichardson/electron-mocha/pull/94      "Remove uncaught exception errors"
 [#93]: https://github.com/jprichardson/electron-mocha/issues/93    "Assert not caught in async tests"
 [#92]: https://github.com/jprichardson/electron-mocha/issues/92    "Allow renderer process testing in electron-mocha"
@@ -271,4 +276,3 @@
 [#3]: https://github.com/jprichardson/electron-mocha/issues/3      "Renderer test hang indefinitely"
 [#2]: https://github.com/jprichardson/electron-mocha/issues/2      "Get this working in Travis-CI"
 [#1]: https://github.com/jprichardson/electron-mocha/issues/1      "Set exit code (dependent upon Electron fix)"
-
