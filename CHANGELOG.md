@@ -1,5 +1,11 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+3.4.0 / 2017-03-20
+------------------
+- Re-enable --bail option
+- Add -O / --reporter-options from Mocha.js
+- Update fs-extra dependency
+
 3.3.0 / 2016-12-14
 ------------------
 - Fix --interactive move. See: [#97][#97]
