@@ -50,6 +50,7 @@ Usage: electron-mocha [options] [files]
     -h, --help             output usage information
     -V, --version          output the version number
     -C, --no-colors        force disabling of colors
+    -O, --reporter-options reporter-specific options, format: k=v,k2=v2,...
     -R, --reporter <name>  specify the reporter to use
     -S, --sort             sort test files
     -b, --bail             bail after first test failure

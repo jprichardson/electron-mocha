@@ -9,6 +9,7 @@ function parse (argv) {
     .version(require('./package').version)
     .usage('[options] [files]')
     .option('-C, --no-colors', 'force disabling of colors')
+    .option('-O, --reporter-options <k=v,k2=v2,...>', 'reporter-specific options')
     .option('-R, --reporter <name>', 'specify the reporter to use', 'spec')
     .option('-S, --sort', 'sort test files')
     .option('-b, --bail', 'bail after first test failure')
@@ -43,6 +44,22 @@ function parse (argv) {
   if (argData.debugBrk) {
     argData.debug = true
   }
+
+  // reporter options
+  var reporterOptions = {}
+  if (program.reporterOptions !== undefined) {
+    program.reporterOptions.split(',').forEach(function (opt) {
+      var L = opt.split('=')
+      if (L.length > 2 || L.length === 0) {
+        throw new Error("invalid reporter option '" + opt + "'")
+      } else if (L.length === 2) {
+        reporterOptions[L[0]] = L[1]
+      } else {
+        reporterOptions[L[0]] = true
+      }
+    })
+  }
+  argData['reporterOptions'] = reporterOptions
 
   // delete unused
   ;['commands', 'options', '_execs', '_args', '_name', '_events', '_usage', '_version', '_eventsCount', 'args'].forEach(function (key) {

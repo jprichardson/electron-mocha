@@ -8,7 +8,7 @@ function createFromArgs (args) {
   // infinite stack traces (this was pulled from Mocha source, may not be necessary)
   Error.stackTraceLimit = Infinity
 
-  mocha.reporter(args.reporter)
+  mocha.reporter(args.reporter, args.reporterOptions)
   mocha.ui(args.ui)
 
   if (args.inlineDiffs) mocha.useInlineDiffs(true)
