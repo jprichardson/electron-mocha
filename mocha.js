@@ -15,7 +15,7 @@ function createFromArgs (args) {
   if (args.slow) mocha.suite.slow(args.slow)
   if (!args.timeouts) mocha.enableTimeouts(false)
   if (args.timeout) mocha.suite.timeout(args.timeout)
-  mocha.bail(args.bail)
+  if (args.bail) mocha.bail(args.bail)
   if (args.grep) mocha.grep(new RegExp(args.grep))
   if (args.fgrep) mocha.grep(args.fgrep)
   if (args.invert) mocha.invert()
