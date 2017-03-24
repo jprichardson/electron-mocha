@@ -1,0 +1,31 @@
+extends: eslint:recommended
+
+env:
+  es6: true
+  node: true
+  mocha: true
+
+rules:
+  strict: [2, "global"]
+  no-var: 2
+  no-sync: 2
+  no-unused-vars: [2, {"args": "none"}]
+  consistent-return: 0
+  no-fallthrough: 2
+  no-case-declarations: 2
+  default-case: 2
+  indent: [1, 2]
+  camelcase: 0
+  no-underscore-dangle: 2
+  no-trailing-spaces: 1
+  space-in-parens: [1, "never"]
+  space-before-keywords: 1
+  space-after-keywords: 1
+  space-before-blocks: 1
+  space-infix-ops: 1
+  space-before-function-paren: [1, "never"]
+  brace-style: [1, "1tbs"]
+  no-unreachable: 2
+  quotes: [2, "single", "avoid-escape"]
+  quote-props: [2, "as-needed"]
+  no-console: 0
