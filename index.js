@@ -17,7 +17,7 @@ const opts = args.parse(process.argv)
 const tmpdir = fs.mkdtempSync(join(app.getPath('temp'), 'electron-mocha-'))
 app.setPath('userData', tmpdir)
 
-app.on('quit', () => {
+app.on('exit', () => {
   fs.removeSync(tmpdir)
 })
 
