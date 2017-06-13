@@ -7,6 +7,7 @@ const getOptions = require('mocha/bin/options')
 const args = require('./args')
 const mocha = require('./mocha')
 const { app, ipcMain: ipc } = require('electron')
+const { spawn } = require('child_process')
 
 // load mocha.opts into process.argv
 getOptions()
@@ -18,7 +19,15 @@ const tmpdir = fs.mkdtempSync(join(app.getPath('temp'), 'electron-mocha-'))
 app.setPath('userData', tmpdir)
 
 app.on('quit', () => {
-  fs.removeSync(tmpdir)
+  // Run cleanup in a separate process so that we're not trying to remove
+  // Electron's data out from under it.
+  const child = spawn(process.execPath, ['cleanup.js', tmpdir], {
+    detached: true,
+    stdio: 'ignore',
+    env: { 'ELECTRON_RUN_AS_NODE': 1 },
+    cwd: __dirname
+  })
+  child.unref()
 })
 
 // do not quit if tests open and close windows
