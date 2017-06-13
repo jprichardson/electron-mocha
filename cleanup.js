@@ -1,5 +1,5 @@
 const fs = require('fs-extra')
-// Wait some amount of time to try to ensure that Electron has fully quit.
+// Wait some amount of time to try to ensure Electron has fully quit.
 setTimeout(removeTmpdir, 1000)
 
 function removeTmpdir () {

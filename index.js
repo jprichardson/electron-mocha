@@ -19,13 +19,12 @@ const tmpdir = fs.mkdtempSync(join(app.getPath('temp'), 'electron-mocha-'))
 app.setPath('userData', tmpdir)
 
 app.on('quit', () => {
-  const env = { 'ELECTRON_RUN_AS_NODE': 1 }
   // Run cleanup in a separate process so that we're not trying to remove
   // Electron's data out from under it.
   const child = spawn(process.execPath, ['cleanup.js', tmpdir], {
     detached: true,
     stdio: 'ignore',
-    env,
+    env: { 'ELECTRON_RUN_AS_NODE': 1 },
     cwd: __dirname
   })
   child.unref()
