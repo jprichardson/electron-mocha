@@ -1,5 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+3.5.0 / 2017-06-13
+------------------
+- Clean-up tmp userData in separate task. See: [#105][#105]
+
 3.4.0 / 2017-03-20
 ------------------
 - Re-enable --bail option
@@ -188,6 +192,7 @@
 - initial release
 
 
+[#105]: https://github.com/jprichardson/electron-mocha/pull/105      "Run clean up in a separate task"
 [#97]: https://github.com/jprichardson/electron-mocha/pull/97      "Trigger 'mocha-start' on page reload"
 [#94]: https://github.com/jprichardson/electron-mocha/pull/94      "Remove uncaught exception errors"
 [#93]: https://github.com/jprichardson/electron-mocha/issues/93    "Assert not caught in async tests"
