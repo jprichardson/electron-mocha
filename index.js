@@ -18,6 +18,15 @@ const opts = args.parse(process.argv)
 const tmpdir = fs.mkdtempSync(join(app.getPath('temp'), 'electron-mocha-'))
 app.setPath('userData', tmpdir)
 
+// Load `--require-main` script first
+if (opts.requireMain.length === 1) {
+  try {
+    require(opts.requireMain[0])
+  } catch (error) {
+    fail(error)
+  }
+}
+
 app.on('quit', () => {
   // Run cleanup in a separate process so that we're not trying to remove
   // Electron's data out from under it.
@@ -34,14 +43,6 @@ app.on('quit', () => {
 app.on('window-all-closed', () => {})
 
 app.on('ready', () => {
-  if (opts.requireMain.length === 1) {
-    try {
-      require(opts.requireMain[0])
-    } catch (error) {
-      fail(error)
-    }
-  }
-
   if (opts.interactive) {
     opts.renderer = true
     opts.debug = true
