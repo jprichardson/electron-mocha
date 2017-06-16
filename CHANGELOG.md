@@ -1,5 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+4.0.0 / 2017-06-16
+------------------
+- Load --require-main script before app 'ready' event. This allows scripts to configure Electron before the event is fired.
+
 3.5.0 / 2017-06-13
 ------------------
 - Clean-up tmp userData in separate task. See: [#105][#105]
