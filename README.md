@@ -110,6 +110,10 @@ Use the `--debug` or `--debug-brk` options to enable Electron's debugger. When u
 
 To debug the main process (i.e., if you run your tests without the `--renderer` option), you will need to start an external debugger. For more details, see [Electron's documentation](http://electron.atom.io/docs/tutorial/debugging-main-process/).
 
+### Code Coverage
+
+You can use electron-mocha to collect code coverage data in Electron's main and renderer processes. To do this, you will need to instrument your code, run the tests on the instrumented code, and save the coverage stats after all tests have finished. You can [instrument your code on the fly](https://github.com/tropy/tropy/blob/master/test/support/coverage.js) using [istanbul-lib](https://github.com/istanbuljs/istanbuljs) or by running `istanbul instrument` [before you exectue your tests](https://github.com/MarshallOfSound/Google-Play-Music-Desktop-Player-UNOFFICIAL-/commit/1b2055b286f1f296c0d48dec714224c14acb3c34). Finally, use [nyc](https://github.com/istanbuljs/nyc/) to combine the results from all processes into a single coverage report.
+
 Roadmap
 -------
 - Implement a way to allow tests to run in either `main`/`renderer` from within
