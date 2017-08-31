@@ -6,7 +6,7 @@
   "scripts": {
     "test": "standard && node bin/electron-mocha test/main && node bin/electron-mocha --renderer test/renderer",
     "mocha": "node bin/electron-mocha",
-    "prepublish": "npm test"
+    "prepublishOnly": "npm test"
   },
   "bin": {
     "electron-mocha": "./bin/electron-mocha"
