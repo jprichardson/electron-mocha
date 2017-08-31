@@ -1,5 +1,10 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+4.0.1 / 2017-08-31
+------------------
+- Update dependencies
+- Added support for electron-compile. See [#111][#111]
+
 4.0.0 / 2017-06-16
 ------------------
 - Load --require-main script before app 'ready' event. This allows scripts to configure Electron before the event is fired.
@@ -196,6 +201,7 @@
 - initial release
 
 
+[#111]: https://github.com/jprichardson/electron-mocha/pull/111      "added support for electron compile"
 [#105]: https://github.com/jprichardson/electron-mocha/pull/105      "Run clean up in a separate task"
 [#97]: https://github.com/jprichardson/electron-mocha/pull/97      "Trigger 'mocha-start' on page reload"
 [#94]: https://github.com/jprichardson/electron-mocha/pull/94      "Remove uncaught exception errors"
