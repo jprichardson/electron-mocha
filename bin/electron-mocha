@@ -6,6 +6,7 @@ var which = require('which')
 
 var electron = process.env.ELECTRON_PATH ||
   resolve('electron') || resolve('electron-prebuilt') ||
+  resolve('electron-compile') || resolve('electron-prebuilt-compile') ||
   resolve('electron', which.sync)
 
 if (!electron) {
