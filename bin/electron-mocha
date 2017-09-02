@@ -4,9 +4,12 @@ var path = require('path')
 var spawn = require('child_process').spawn
 var which = require('which')
 
-var electron = process.env.ELECTRON_PATH ||
-  resolve('electron') || resolve('electron-prebuilt') ||
-  resolve('electron-prebuilt-compile') || resolve('electron', which.sync)
+var electron =
+  process.env.ELECTRON_PATH ||
+  resolve('electron') ||
+  resolve('electron-prebuilt') ||
+  resolve('electron-prebuilt-compile') ||
+  resolve('electron', which.sync)
 
 if (!electron) {
   console.error('')
@@ -18,8 +21,7 @@ if (!electron) {
 
 run(electron)
 
-
-function resolve(module, resolver) {
+function resolve (module, resolver) {
   try {
     return (resolver || require)(module)
   } catch (_) {
@@ -38,7 +40,7 @@ function run (electron) {
   child.stderr.on('data', function (data) {
     var str = data.toString('utf8')
     // it's Chromium, STFU
-    if (str.match(/^\[\d+\:\d+/)) return
+    if (str.match(/^\[\d+:\d+/)) return
     process.stderr.write(data)
   })
   child.on('exit', function (code) { process.exit(code) })
