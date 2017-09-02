@@ -1,5 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+4.0.2 / 2017-09-02
+------------------
+- Fixed support for electron-compile. See [#112][#112]
+
 4.0.1 / 2017-08-31
 ------------------
 - Update dependencies
@@ -175,8 +179,7 @@
 
 0.3.1 / 2015-08-27
 ------------------
-- bugfix: incorrect stdin/stdout values (fail on Node v0.10): https://github.com/jprichardson/electron-mocha/pull/8
-
+- bugfix: incorrect stdin/stdout values (fail on Node v0.10): https://github.com/jprichardson/electron-mocha/pull/8 
 0.3.0 / 2015-07-30
 ------------------
 - display an error about not being able locate `electron`
@@ -201,6 +204,7 @@
 - initial release
 
 
+[#112]: https://github.com/jprichardson/electron-mocha/pull/112      "fix for electron compile support"
 [#111]: https://github.com/jprichardson/electron-mocha/pull/111      "added support for electron compile"
 [#105]: https://github.com/jprichardson/electron-mocha/pull/105      "Run clean up in a separate task"
 [#97]: https://github.com/jprichardson/electron-mocha/pull/97      "Trigger 'mocha-start' on page reload"
@@ -218,8 +222,7 @@
 [#83]: https://github.com/jprichardson/electron-mocha/pull/83      "Prevent electron-mocha stealing focus from other applications"
 [#82]: https://github.com/jprichardson/electron-mocha/issues/82    "Running tests steals focus from Terminal"
 [#81]: https://github.com/jprichardson/electron-mocha/issues/81    "Mocha requires Electron to be installed globally"
-[#80]: https://github.com/jprichardson/electron-mocha/issues/80    "support for `--watch`"
-[#79]: https://github.com/jprichardson/electron-mocha/pull/79      "Add .npmignore file"
+[#80]: https://github.com/jprichardson/electron-mocha/issues/80    "support for `--watch`" [#79]: https://github.com/jprichardson/electron-mocha/pull/79      "Add .npmignore file"
 [#78]: https://github.com/jprichardson/electron-mocha/pull/78      "Exit after webContents destroyed event fires"
 [#77]: https://github.com/jprichardson/electron-mocha/issues/77    "electron mocha temp dir locked; unlink error"
 [#76]: https://github.com/jprichardson/electron-mocha/issues/76    "Latest update broke support on Node.JS v4 and v5"
