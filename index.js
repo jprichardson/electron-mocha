@@ -18,6 +18,10 @@ const opts = args.parse(process.argv)
 const tmpdir = fs.mkdtempSync(join(app.getPath('temp'), 'electron-mocha-'))
 app.setPath('userData', tmpdir)
 
+if (opts.ignoreGpuBlacklist) {
+  app.commandLine.appendSwitch('ignore-gpu-blacklist')
+}
+
 // Load `--require-main` script first
 if (opts.requireMain.length === 1) {
   try {
