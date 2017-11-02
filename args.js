@@ -34,6 +34,7 @@ function parse (argv) {
     .option('--renderer', 'run tests in renderer process')
     .option('--preload <name>', 'preload the given script in renderer process', modules, [])
     .option('--require-main <name>', 'load the given script in main process before executing tests', modules, [])
+    .option('--ignore-gpu-blacklist', 'run electron with --ignore-gpu-blacklist')
 
   module.paths.push(cwd, join(cwd, 'node_modules'))
 
