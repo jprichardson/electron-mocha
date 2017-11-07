@@ -1,5 +1,10 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+5.0.0 / 2017-11-07
+------------------
+- Update to Mocha 4.
+- Remove --compilers option.
+
 4.0.2 / 2017-09-02
 ------------------
 - Fixed support for electron-compile. See [#112][#112]
