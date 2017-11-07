@@ -104,6 +104,19 @@ before_script:
   - export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start
 ```
 
+#### WebGL Tests
+
+If you are writing tests for webgl programs, it will fail when getting webgl contexts because travis doesn't have GPU support. You can pass **--ignore-gpu-blacklist** to electron as below to bypass it:
+* command
+```shell
+electron-mocha --require-main ignore-gpu-blacklist.js ./tests
+```
+* ignore-gpu-blacklist.js
+```js
+const { app } = require('electron');
+app.commandLine.appendSwitch('ignore-gpu-blacklist');
+```
+
 ###  Debugger Support
 
 Use the `--debug` or `--debug-brk` options to enable Electron's debugger. When using `--renderer` this will open the test window and open the dev-tools. Note that the window will close automatically when the tests have finished, therefore this option should be used in combination with `debugger` statements anywhere in your tests or code. Alternatively, you can use the `--interactive` option which will keep the window open after your tests have run (you can reload the window to run the tests again) -- this gives you the opportunity to set breakpoints using the dev-tools debugger.
