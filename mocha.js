@@ -1,5 +1,5 @@
 const Mocha = require('mocha')
-const { join, resolve } = require('path')
+const { resolve } = require('path')
 
 function createFromArgs (args) {
   const utils = Mocha.utils
@@ -31,14 +31,6 @@ function createFromArgs (args) {
   if (!args.files.length) args.files.push('test')
   args.files.forEach((arg) => {
     files = files.concat(utils.lookupFiles(arg, extensions, args.recursive))
-  })
-
-  args.compilers.forEach((compilers) => {
-    let [ext, mod] = compilers.split(':')
-
-    if (mod[0] === '.') mod = join(process.cwd(), mod)
-    require(mod)
-    extensions.push(ext)
   })
 
   args.require.forEach((mod) => {

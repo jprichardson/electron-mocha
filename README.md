@@ -62,7 +62,6 @@ Usage: electron-mocha [options] [files]
     -t, --timeout <ms>     set test-case timeout in milliseconds [2000]
     -u, --ui <name>        specify user-interface (bdd|tdd|exports)
     --check-leaks          check for global variable leaks
-    --compilers            use the given module(s) to compile files
     --debug                enable Electron debugger on port [5858]; for --renderer tests show window and dev-tools
     --debug-brk            like --debug but pauses the script on the first line
     --globals <names>      allow the given comma-delimited global [names]
