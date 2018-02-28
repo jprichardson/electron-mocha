@@ -1,5 +1,10 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+6.0.0 / 2018-02-28
+------------------
+- Update to Mocha 5.
+- Add --delay option. See [#122][#122]
+
 5.0.0 / 2017-11-07
 ------------------
 - Update to Mocha 4.
@@ -209,6 +214,7 @@
 - initial release
 
 
+[#122]: https://github.com/jprichardson/electron-mocha/pull/122      "Add delay option"
 [#112]: https://github.com/jprichardson/electron-mocha/pull/112      "fix for electron compile support"
 [#111]: https://github.com/jprichardson/electron-mocha/pull/111      "added support for electron compile"
 [#105]: https://github.com/jprichardson/electron-mocha/pull/105      "Run clean up in a separate task"
