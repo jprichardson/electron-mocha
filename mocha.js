@@ -20,6 +20,7 @@ function createFromArgs (args) {
   if (args.fgrep) mocha.grep(args.fgrep)
   if (args.invert) mocha.invert()
   if (args.checkLeaks) mocha.checkLeaks()
+  if (args.delay) mocha.delay()
   mocha.globals(args.globals)
 
   // --no-colors
