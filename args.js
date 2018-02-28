@@ -32,6 +32,7 @@ function parse (argv) {
     .option('--recursive', 'include sub directories')
     .option('--renderer', 'run tests in renderer process')
     .option('--preload <name>', 'preload the given script in renderer process', modules, [])
+    .option('--delay', 'wait for async suite definition')
     .option('--require-main <name>', 'load the given script in main process before executing tests', modules, [])
 
   module.paths.push(cwd, join(cwd, 'node_modules'))
