@@ -1,8 +1,11 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
-6.0.0 / 2018-02-28
+6.0.1 / 2018-03-01
 ------------------
 - Update to Mocha 5.
+
+6.0.0 / 2018-02-28
+------------------
 - Add --delay option. See [#122][#122]
 
 5.0.0 / 2017-11-07
