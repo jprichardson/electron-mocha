@@ -81,7 +81,7 @@ So if you run:
 
     electron-mocha ./tests
 
-This runs the tests in the [`main`](https://github.com/atom/electron/blob/master/docs/tutorial/quick-start.md#main-process)
+This runs the tests in the [`main`](https://github.com/electron/electron/blob/master/docs/tutorial/application-architecture.md#main-and-renderer-processes)
 process. The output that you could expect would be pretty similar to that of io.js with one exception,
 it supports all of Electron libraries since it's running
 in Electron! So you don't need to mock those libraries out anymore and can actually write tests to integrate with them.
@@ -90,7 +90,7 @@ If you run:
 
     electron-mocha --renderer ./tests
 
-This runs the tests in the [`renderer`](https://github.com/atom/electron/blob/master/docs/tutorial/quick-start.md#main-process).
+This runs the tests in the [`renderer`](https://github.com/electron/electron/blob/master/docs/tutorial/application-architecture.md#main-and-renderer-processes).
 Yes, this means that you have access to the entirety of the DOM, web storage, etc. This is because it's actually
 running in a [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser)) process.
 
