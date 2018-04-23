@@ -1,5 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+6.0.2 / 2018-04-23
+------------------
+- Removed electron-prebuilt-compile.
+
 6.0.1 / 2018-03-01
 ------------------
 - Update to Mocha 5.
