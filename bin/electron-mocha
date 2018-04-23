@@ -8,7 +8,6 @@ var electron =
   process.env.ELECTRON_PATH ||
   resolve('electron') ||
   resolve('electron-prebuilt') ||
-  resolve('electron-prebuilt-compile') ||
   resolve('electron', which.sync)
 
 if (!electron) {
