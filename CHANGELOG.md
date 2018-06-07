@@ -1,5 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+6.0.3 / 2018-06-07
+------------------
+- Prevent app suspension. See [#129][#129]
+
 6.0.2 / 2018-04-23
 ------------------
 - Removed electron-prebuilt-compile.
@@ -221,10 +225,11 @@
 - initial release
 
 
-[#122]: https://github.com/jprichardson/electron-mocha/pull/122      "Add delay option"
-[#112]: https://github.com/jprichardson/electron-mocha/pull/112      "fix for electron compile support"
-[#111]: https://github.com/jprichardson/electron-mocha/pull/111      "added support for electron compile"
-[#105]: https://github.com/jprichardson/electron-mocha/pull/105      "Run clean up in a separate task"
+[#129]: https://github.com/jprichardson/electron-mocha/pull/129    "Disable power save app suspension"
+[#122]: https://github.com/jprichardson/electron-mocha/pull/122    "Add delay option"
+[#112]: https://github.com/jprichardson/electron-mocha/pull/112    "fix for electron compile support"
+[#111]: https://github.com/jprichardson/electron-mocha/pull/111    "added support for electron compile"
+[#105]: https://github.com/jprichardson/electron-mocha/pull/105    "Run clean up in a separate task"
 [#97]: https://github.com/jprichardson/electron-mocha/pull/97      "Trigger 'mocha-start' on page reload"
 [#94]: https://github.com/jprichardson/electron-mocha/pull/94      "Remove uncaught exception errors"
 [#93]: https://github.com/jprichardson/electron-mocha/issues/93    "Assert not caught in async tests"
@@ -240,7 +245,8 @@
 [#83]: https://github.com/jprichardson/electron-mocha/pull/83      "Prevent electron-mocha stealing focus from other applications"
 [#82]: https://github.com/jprichardson/electron-mocha/issues/82    "Running tests steals focus from Terminal"
 [#81]: https://github.com/jprichardson/electron-mocha/issues/81    "Mocha requires Electron to be installed globally"
-[#80]: https://github.com/jprichardson/electron-mocha/issues/80    "support for `--watch`" [#79]: https://github.com/jprichardson/electron-mocha/pull/79      "Add .npmignore file"
+[#80]: https://github.com/jprichardson/electron-mocha/issues/80    "support for `--watch`"
+[#79]: https://github.com/jprichardson/electron-mocha/pull/79      "Add .npmignore file"
 [#78]: https://github.com/jprichardson/electron-mocha/pull/78      "Exit after webContents destroyed event fires"
 [#77]: https://github.com/jprichardson/electron-mocha/issues/77    "electron mocha temp dir locked; unlink error"
 [#76]: https://github.com/jprichardson/electron-mocha/issues/76    "Latest update broke support on Node.JS v4 and v5"
