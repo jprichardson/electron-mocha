@@ -6,7 +6,7 @@ const window = require('electron-window')
 const getOptions = require('mocha/bin/options')
 const args = require('./args')
 const mocha = require('./mocha')
-const { app, ipcMain: ipc } = require('electron')
+const { app, ipcMain: ipc, powerSaveBlocker } = require('electron')
 const { spawn } = require('child_process')
 
 // load mocha.opts into process.argv
@@ -43,6 +43,7 @@ app.on('quit', () => {
 app.on('window-all-closed', () => {})
 
 app.on('ready', () => {
+  powerSaveBlocker.start('prevent-app-suspension')
   if (opts.interactive) {
     opts.renderer = true
     opts.debug = true
