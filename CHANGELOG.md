@@ -1,5 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
+6.0.4 / 2018-06-12
+------------------
+- Stop forwarding `process.stdout` to remote in Renderer. [#130][#130]
+
 6.0.3 / 2018-06-07
 ------------------
 - Prevent app suspension. See [#129][#129]
@@ -225,6 +229,7 @@
 - initial release
 
 
+[#130]: https://github.com/jprichardson/electron-mocha/pull/130    "Natively compiled module sqlite3 crash"
 [#129]: https://github.com/jprichardson/electron-mocha/pull/129    "Disable power save app suspension"
 [#122]: https://github.com/jprichardson/electron-mocha/pull/122    "Add delay option"
 [#112]: https://github.com/jprichardson/electron-mocha/pull/112    "fix for electron compile support"
