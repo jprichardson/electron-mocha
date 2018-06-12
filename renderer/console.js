@@ -9,8 +9,3 @@ console.log = function () {
 console.dir = function () {
   remoteConsole.dir.apply(remoteConsole, arguments)
 }
-
-// if we don't do this, we get socket errors and our tests crash
-Object.defineProperty(process, 'stdout', {
-  value: remote.process.stdout
-})
