@@ -6,11 +6,11 @@ const window = require('electron-window')
 const getOptions = require('mocha/bin/options')
 const args = require('./args')
 const mocha = require('./mocha')
-const { app, remote, ipcMain: ipc, powerSaveBlocker } = require('electron')
+const { app as defaultApp, remote, ipcMain: ipc, powerSaveBlocker } = require('electron')
 const { spawn } = require('child_process')
 
 // use remote.app if app is not available
-app = app || remote.app
+const app = defaultApp || remote.app
 
 // load mocha.opts into process.argv
 getOptions()
