@@ -2,9 +2,9 @@ electron-mocha
 ==============
 [![Build Status](https://travis-ci.org/jprichardson/electron-mocha.svg?branch=master)](https://travis-ci.org/jprichardson/electron-mocha)
 [![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/jprichardson/electron-mocha?branch=master&svg=true)](https://ci.appveyor.com/project/jprichardson/electron-mocha)
-[![npm](https://img.shields.io/npm/v/electron-mocha.svg?maxAge=2592000)]()
+[![npm](https://img.shields.io/npm/v/electron-mocha.svg?maxAge=2592000)](https://www.npmjs.com/package/electron-mocha)
 
-Mocha testing in [Electron](http://electron.atom.io/). This project has
+Mocha testing in [Electron](https://electronjs.org). This project has
 two main value propositions:
 
 1. You can now easily test any JavaScript app in a real browser (Chromium)
