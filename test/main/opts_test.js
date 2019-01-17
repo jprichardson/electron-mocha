@@ -4,10 +4,10 @@ var assert = require('assert')
 
 describe('mocha.opts', function () {
   it('--require modules are loaded', function () {
-    assert.equal(true, global.required)
+    assert.strictEqual(true, global.required)
   })
 
   it('--require-main modules are loaded', function () {
-    assert.equal(true, global.requiredMain)
+    assert.strictEqual(true, global.requiredMain)
   })
 })
