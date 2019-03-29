@@ -18,10 +18,10 @@ const opts = args.parse(process.argv)
 const tmpdir = fs.mkdtempSync(join(app.getPath('temp'), 'electron-mocha-'))
 app.setPath('userData', tmpdir)
 
-// Load `--require-main` script first
-if (opts.requireMain.length === 1) {
+// Load `--require-main` scripts first
+for (let i = 0; i < opts.requireMain.length; i++) {
   try {
-    require(opts.requireMain[0])
+    require(opts.requireMain[i])
   } catch (error) {
     fail(error)
   }
