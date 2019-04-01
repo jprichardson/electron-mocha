@@ -1,8 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
 
-6.0.4 / 2018-06-12
+7.0.0 / 2019-04-01
 ------------------
-- Stop forwarding `process.stdout` to remote in Renderer. [#130][#130]
+- Update to Mocha 6.
+- Support multiple --require-main scripts. [#136][#136]
 
 6.0.3 / 2018-06-07
 ------------------
@@ -229,6 +230,7 @@
 - initial release
 
 
+[#136]: https://github.com/jprichardson/electron-mocha/pull/136    "Enable loading multiple --require-main scripts"
 [#130]: https://github.com/jprichardson/electron-mocha/pull/130    "Natively compiled module sqlite3 crash"
 [#129]: https://github.com/jprichardson/electron-mocha/pull/129    "Disable power save app suspension"
 [#122]: https://github.com/jprichardson/electron-mocha/pull/122    "Add delay option"
