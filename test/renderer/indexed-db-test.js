@@ -1,6 +1,6 @@
-var assert = require('assert')
+'use strict'
 
-/* global describe it */
+const assert = require('assert')
 
 describe('accessing indexedDB', () => {
   it('does not fail when deleting the temp directory on exit', () => {

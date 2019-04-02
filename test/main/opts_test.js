@@ -1,13 +1,13 @@
-var assert = require('assert')
+'use strict'
 
-/* global describe it */
+const assert = require('assert')
 
-describe('mocha.opts', function () {
-  it('--require modules are loaded', function () {
+describe('mocha.opts', () => {
+  it('--require modules are loaded', () => {
     assert.strictEqual(true, global.required)
   })
 
-  it('--require-main modules are loaded', function () {
+  it('--require-main modules are loaded', () => {
     assert.strictEqual(true, global.requiredMain)
   })
 })
