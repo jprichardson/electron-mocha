@@ -1,7 +1,7 @@
 'use strict'
 
 const fs = require('fs-extra')
-const { join, resolve } = require('path')
+const { join } = require('path')
 const window = require('electron-window')
 const getOptions = require('mocha/bin/options')
 const args = require('./args')
@@ -88,7 +88,7 @@ app.on('ready', () => {
       }
     })
 
-    const indexPath = resolve(join(__dirname, './renderer/index.html'))
+    const indexPath = join(__dirname, './renderer/index.html')
     // undocumented call in electron-window
     win._loadURLWithArgs(indexPath, opts, () => {})
     // win.showURL(indexPath, opts)
