@@ -32,15 +32,20 @@ function run (electron) {
   var args = process.argv.slice(2)
   args.unshift(path.resolve(path.join(__dirname, '../index.js')))
 
-  var child = spawn(electron, args)
-  child.stdout.pipe(process.stdout)
-  process.stdin.pipe(child.stdin)
-
-  child.stderr.on('data', function (data) {
-    var str = data.toString('utf8')
-    // it's Chromium, STFU
-    if (str.match(/^\[\d+:\d+/)) return
-    process.stderr.write(data)
+  var child = spawn(electron, args, {
+    stdio: 'inherit'
   })
-  child.on('exit', function (code) { process.exit(code) })
+
+  child.on('exit', function (code, signal) {
+    if (signal) {
+      process.kill(process.pid, signal)
+    } else {
+      process.exit(code)
+    }
+  })
+
+  process.on('SIGINT', function () {
+    child.kill('SIGINT')
+    child.kill('SIGTERM')
+  })
 }
