@@ -1,9 +1,9 @@
-var assert = require('assert')
+'use strict'
 
-/* global describe it */
+const assert = require('assert')
 
-describe('electron-mocha', function () {
-  it('runs in main process by default', function () {
+describe('electron-mocha', () => {
+  it('runs in main process by default', () => {
     assert.strictEqual(process.type, 'browser')
   })
 })

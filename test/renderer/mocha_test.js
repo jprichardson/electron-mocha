@@ -1,10 +1,10 @@
-var assert = require('assert')
-var mocha = require('mocha')
+'use strict'
 
-/* global describe it */
+const assert = require('assert')
+const mocha = require('mocha')
 
-describe('mocha', function () {
-  it('is exposed as global', function () {
+describe('mocha', () => {
+  it('is exposed as global', () => {
     assert.strictEqual(window.mocha, mocha)
   })
 })
