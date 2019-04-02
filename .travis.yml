@@ -4,9 +4,16 @@ node_js:
   - 10
   - 8
   - 6
+matrix:
+  fast_finish: true
+  include:
+    - os: linux
+      env: DISPLAY=:99.0
+    - os: osx
 before_install:
-  - export DISPLAY=:99.0
-  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+  - if [[ $TRAVIS_OS_NAME = "linux" ]]; then
+      Xvfb :99 -ac -screen 0 1024x768x24 > /dev/null 2>&1 &
+    fi
 install:
   - npm install --no-progress
 script:
