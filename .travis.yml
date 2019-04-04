@@ -1,14 +1,15 @@
 language: node_js
 node_js:
-  - node
+  - stable
   - 10
   - 8
+env: DISPLAY=:99.0
 matrix:
   fast_finish: true
   include:
-    - os: linux
-      env: DISPLAY=:99.0
     - os: osx
+      node_js: stable
+      env:
 before_install:
   - if [[ $TRAVIS_OS_NAME = "linux" ]]; then
       Xvfb :99 -ac -screen 0 1024x768x24 > /dev/null 2>&1 &
