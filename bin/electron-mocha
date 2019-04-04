@@ -31,7 +31,7 @@ function resolve (module, resolver) {
 
 function run (electron) {
   let args = [
-    join(__dirname, '../index.js'),
+    join(__dirname, '../main.js'),
     ...process.argv.slice(2)
   ]
 

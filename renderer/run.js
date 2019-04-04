@@ -1,17 +1,17 @@
-const opts = window.__args__
+const { files, ...opts } = window.__args__
 
 if (!opts.interactive) {
   require('./console')
 }
 
-const mocha = require('../mocha')
+const { Mocha, helpers } = require('../mocha')
 const { ipcRenderer: ipc } = require('electron')
 
-// Expose mocha
-window.mocha = require('mocha')
+// Expose Mocha
+window.mocha = Mocha
 
 try {
-  opts.preload.forEach((script) => {
+  opts.script.forEach((script) => {
     const tag = document.createElement('script')
     tag.src = script
     tag.async = false
@@ -26,7 +26,7 @@ try {
 
 ipc.on('mocha-start', () => {
   try {
-    mocha.run(opts, (...args) => {
+    helpers.runMocha(opts, files, (...args) => {
       ipc.send('mocha-done', ...args)
     })
   } catch ({ message, stack }) {

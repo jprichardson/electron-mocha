@@ -1,11 +1,10 @@
 const { remote } = require('electron')
 const remoteConsole = remote.require('console')
 
-// we have to do this so that mocha output doesn't look like shit
-console.log = function () {
-  remoteConsole.log.apply(remoteConsole, arguments)
+console.log = (...args) => {
+  remoteConsole.log(...args)
 }
 
-console.dir = function () {
-  remoteConsole.dir.apply(remoteConsole, arguments)
+console.dir = (...args) => {
+  remoteConsole.dir(...args)
 }
