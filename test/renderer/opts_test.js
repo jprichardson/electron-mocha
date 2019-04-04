@@ -8,11 +8,15 @@ describe('mocha.opts', () => {
     assert.strictEqual(true, window.required)
   })
 
-  it('--preload scripts are loaded', () => {
+  it('--script modules are loaded', () => {
     assert.strictEqual(true, window.preloaded)
   })
 
   it('--require-main modules are loaded in the main process', () => {
     assert.strictEqual(true, remote.getGlobal('requiredMain'))
+  })
+
+  it('--require-main modules are loaded before "ready"', () => {
+    assert.strictEqual(true, remote.getGlobal('requiredMainBeforeReady'))
   })
 })

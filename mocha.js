@@ -1,61 +1,37 @@
+'use strict'
+
 const Mocha = require('mocha')
-const { resolve } = require('path')
+const errors = require('mocha/lib/errors')
 
-function createFromArgs (args) {
-  const utils = Mocha.utils
-  const mocha = new Mocha()
+const {
+  handleFiles,
+  handleRequires,
+  validatePlugin
+} = require('mocha/lib/cli/run-helpers')
 
-  // infinite stack traces (this was pulled from Mocha source, may not be necessary)
+const {
+  ONE_AND_DONES
+} = require('mocha/lib/cli/one-and-dones')
+
+const runMocha = (argv, files, done) => {
   Error.stackTraceLimit = Infinity
 
-  mocha.reporter(args.reporter, args.reporterOptions)
-  mocha.ui(args.ui)
+  handleRequires(argv.require)
+  validatePlugin(argv, 'reporter', Mocha.reporters)
+  validatePlugin(argv, 'ui', Mocha.interfaces)
 
-  if (args.inlineDiffs) mocha.useInlineDiffs(true)
-  if (args.slow) mocha.suite.slow(args.slow)
-  if (!args.timeouts) mocha.enableTimeouts(false)
-  if (args.timeout) mocha.suite.timeout(args.timeout)
-  if (args.bail) mocha.bail(args.bail)
-  if (args.grep) mocha.grep(new RegExp(args.grep))
-  if (args.fgrep) mocha.grep(args.fgrep)
-  if (args.invert) mocha.invert()
-  if (args.checkLeaks) mocha.checkLeaks()
-  if (args.delay) mocha.delay()
-  mocha.globals(args.globals)
-
-  // --no-colors
-  mocha.useColors(args.colors)
-
-  // default files to test/*.js
-  let files = []
-  const extensions = ['js']
-  if (!args.files.length) args.files.push('test')
-  args.files.forEach((arg) => {
-    files = files.concat(utils.lookupFiles(arg, extensions, args.recursive))
-  })
-
-  args.require.forEach((mod) => {
-    require(mod)
-  })
-
-  files = files.map((file) => resolve(file))
-
-  if (args.sort) {
-    files.sort()
-  }
-
+  let mocha = new Mocha(argv)
   mocha.files = files
-
-  return mocha
-}
-
-function run (args, callback) {
-  const mocha = createFromArgs(args)
-  /* const runner = */ mocha.run(callback)
-  // process.on('SIGINT', function () { runner.abort() })
+  mocha.run(done)
 }
 
 module.exports = {
-  createFromArgs,
-  run
+  Mocha,
+  ONE_AND_DONES,
+  errors,
+  helpers: {
+    handleFiles,
+    handleRequires,
+    runMocha
+  }
 }
