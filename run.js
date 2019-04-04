@@ -149,7 +149,8 @@ exports.handler = argv => {
 
         ipc.on('mocha-error', (_, error) => fail(error))
 
-        win.showURL(
+        // Undocumented call in electron-window
+        win._loadURLWithArgs(
           join(__dirname, 'renderer/index.html'),
           { ...argv, files },
           () => {
