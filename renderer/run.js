@@ -11,12 +11,14 @@ const { ipcRenderer: ipc } = require('electron')
 window.mocha = Mocha
 
 try {
-  opts.script.forEach((script) => {
-    const tag = document.createElement('script')
-    tag.src = script
-    tag.async = false
-    document.head.appendChild(tag)
-  })
+  if (opts.script) {
+    opts.script.forEach((script) => {
+      const tag = document.createElement('script')
+      tag.src = script
+      tag.async = false
+      document.head.appendChild(tag)
+    })
+  }
 } catch (error) {
   ipc.send('mocha-error', {
     message: error.message,
