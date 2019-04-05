@@ -5,7 +5,7 @@ const { mkdtempSync } = require('fs')
 const { spawn } = require('child_process')
 const { app } = require('electron')
 const { version } = require('./package.json')
-const yargs = require('yargs')
+const yargs = require('yargs/yargs')
 const ansi = require('ansi-colors')
 const symbols = require('log-symbols')
 
@@ -23,7 +23,7 @@ const run = require('./run')
 exports.main = (argv = process.argv.slice(2)) => {
   module.paths.push(process.cwd(), resolve('node_modules'))
 
-  yargs
+  yargs(argv)
     .scriptName('electron-mocha')
     .command(run)
     .fail((msg, err, yargs) => {
