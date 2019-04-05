@@ -148,6 +148,7 @@ exports.handler = argv => {
         })
 
         ipc.on('mocha-error', (_, error) => fail(error))
+        ipc.on('mocha-warn', (_, warning) => warn(warning))
 
         // Undocumented call in electron-window
         win._loadURLWithArgs(
@@ -181,4 +182,8 @@ const fail = error => {
   console.error(`\n${symbols.error} ${ansi.red('ERROR:')} ${error.message}`)
   console.error(error.stack)
   app.exit(1)
+}
+
+const warn = warning => {
+  console.warn(ansi.yellow(`Warning: ${warning.message}`))
 }

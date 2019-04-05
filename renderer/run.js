@@ -7,24 +7,24 @@ if (!opts.interactive) {
 const { Mocha, helpers } = require('../mocha')
 const { ipcRenderer: ipc } = require('electron')
 
-// Expose Mocha
+// Expose Mocha for browser tests
 window.mocha = Mocha
 
-try {
-  if (opts.script) {
-    opts.script.forEach((script) => {
-      const tag = document.createElement('script')
-      tag.src = script
-      tag.async = false
-      document.head.appendChild(tag)
-    })
+const handleScripts = (scripts = []) => {
+  for (let script of scripts) {
+    let tag = document.createElement('script')
+    tag.src = script
+    tag.async = false
+    tag.onerror = () => {
+      ipc.send('mocha-warn', {
+        message: `script not found: ${script}`
+      })
+    }
+    document.head.appendChild(tag)
   }
-} catch (error) {
-  ipc.send('mocha-error', {
-    message: error.message,
-    stack: error.stack
-  })
 }
+
+handleScripts(opts.script)
 
 ipc.on('mocha-start', () => {
   try {
