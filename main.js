@@ -23,7 +23,7 @@ const run = require('./run')
 exports.main = (argv = process.argv.slice(2)) => {
   module.paths.push(process.cwd(), resolve('node_modules'))
 
-  yargs(argv)
+  yargs()
     .scriptName('electron-mocha')
     .command(run)
     .fail((msg, err, yargs) => {
