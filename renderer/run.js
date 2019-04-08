@@ -7,9 +7,6 @@ if (!opts.interactive) {
 const { Mocha, helpers } = require('../lib/mocha')
 const { ipcRenderer: ipc } = require('electron')
 
-// Expose Mocha for browser tests
-window.mocha = Mocha
-
 const handleScripts = (scripts = []) => {
   for (let script of scripts) {
     let tag = document.createElement('script')
@@ -24,6 +21,20 @@ const handleScripts = (scripts = []) => {
   }
 }
 
+const fail = error => {
+  ipc.send('mocha-error', {
+    message: error.message || error,
+    stack: error.stack
+  })
+}
+
+process.on('SIGINT', () => console.log('sigint'))
+// Expose Mocha for browser tests
+window.mocha = Mocha
+
+window.addEventListener('error', fail)
+window.addEventListener('unhandledrejection', e => fail(e.reason))
+
 handleScripts(opts.script)
 
 ipc.on('mocha-start', () => {
@@ -31,8 +42,8 @@ ipc.on('mocha-start', () => {
     helpers.runMocha(opts, files, (...args) => {
       ipc.send('mocha-done', ...args)
     })
-  } catch ({ message, stack }) {
-    ipc.send('mocha-error', { message, stack })
+  } catch (error) {
+    fail(error)
   }
 })
 
