@@ -12,14 +12,12 @@ without hassling with PhantomJS or Webdriver.
 2. You can now easily test your Electron apps!
 
 
-Install
--------
+## Install
 
     npm i -g electron-mocha
 
 
-Usage
------
+## Usage
 
 ### Install Electron
 
@@ -28,75 +26,40 @@ First, you need to install Electron. You can either run:
     npm i -g electron
 
 and then `electron` will be added to your path. Or, you
-can download a version from https://github.com/atom/electron/releases and
+can download a version from https://github.com/electron/releases and
 then set an environment variable `ELECTRON_PATH` pointing to the binary.
 Note if you're using Mac OS X, the path would be to the actual executable
 and not the app directory e.g. `/Applications/Electron.app/Contents/MacOS/Electron`.
 
-You should probably just install `electron-prebuilt` as it simplifies things.
-
-
 ### Run Tests
 
-`electron-mocha` is almost a drop-in replacement for the regular `mocha` command.
-Here's the help output:
+`electron-mocha` is almost a drop-in replacement for the regular `mocha` command,
+with these additional options:
 
-```
+    --renderer              Run tests in renderer process              [boolean]
+    --require-main, --main  Require module in main process               [array]
+    --script, --preload     Load module in renderer via script tag       [array]
+    --interactive           Show renderer tests in persistent window   [boolean]
 
-Usage: electron-mocha [options] [files]
+For the full list of available options, see `electron-mocha --help`.
 
-  Options:
+#### Examples
 
-    -h, --help             output usage information
-    -V, --version          output the version number
-    -C, --no-colors        force disabling of colors
-    -O, --reporter-options reporter-specific options, format: k=v,k2=v2,...
-    -R, --reporter <name>  specify the reporter to use
-    -S, --sort             sort test files
-    -b, --bail             bail after first test failure
-    -g, --grep <pattern>   only run tests matching <pattern>
-    -f, --fgrep <string>   only run tests containing <string>
-    -i, --invert           inverts --grep and --fgrep matches
-    -r, --require <name>   require the given module
-    -s, --slow <ms>        "slow" test threshold in milliseconds [75]
-    -t, --timeout <ms>     set test-case timeout in milliseconds [2000]
-    -u, --ui <name>        specify user-interface (bdd|tdd|exports)
-    --check-leaks          check for global variable leaks
-    --debug                enable Electron debugger on port [5858]; for --renderer tests show window and dev-tools
-    --debug-brk            like --debug but pauses the script on the first line
-    --globals <names>      allow the given comma-delimited global [names]
-    --inline-diffs         display actual/expected differences inline within each string
-    --interactive          run tests in renderer process in a visible window that can be reloaded to re-run tests
-    --interfaces           display available interfaces
-    --no-timeouts          disables timeouts
-    --opts <path>          specify opts path [test/mocha.opts]
-    --recursive            include sub directories
-    --renderer             run tests in renderer process
-    --preload <name>       preload the given script in renderer process
-    --require-main <name>  load the given script in main process before executing tests
+    electron-mocha
 
-```
+This runs all tests in your `test` directory in the
+[main process](https://github.com/electron/electron/blob/master/docs/tutorial/application-architecture.md#main-and-renderer-processes).
 
-So if you run:
+    electron-mocha --renderer
 
-    electron-mocha ./tests
-
-This runs the tests in the [`main`](https://github.com/electron/electron/blob/master/docs/tutorial/application-architecture.md#main-and-renderer-processes)
-process. The output that you could expect would be pretty similar to that of io.js with one exception,
-it supports all of Electron libraries since it's running
-in Electron! So you don't need to mock those libraries out anymore and can actually write tests to integrate with them.
-
-If you run:
-
-    electron-mocha --renderer ./tests
-
-This runs the tests in the [`renderer`](https://github.com/electron/electron/blob/master/docs/tutorial/application-architecture.md#main-and-renderer-processes).
-Yes, this means that you have access to the entirety of the DOM, web storage, etc. This is because it's actually
+This runs all tests in your `test` directory in a
+[renderer process](https://github.com/electron/electron/blob/master/docs/tutorial/application-architecture.md#main-and-renderer-processes).
+This means that you have access to the entirety of the DOM, web storage, etc. This is because it's actually
 running in a [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser)) process.
 
-### Using on Travis
+### Using on Travis CI
 
-Your `.travis.yml` will need two extra lines of configuration to run this headless on Travis:
+On Linux, your `.travis.yml` will need an extra line of configuration to run your tests:
 
 ```yaml
 before_script:
@@ -105,10 +68,13 @@ before_script:
 
 #### WebGL Tests
 
-If you are writing tests for webgl programs, it will fail when getting webgl contexts because travis doesn't have GPU support. You can pass **--ignore-gpu-blacklist** to electron as below to bypass it:
+If you are writing tests for WebGL programs and you cannot get a WebGL contexts,
+this may be because Travis doesn't have GPU support.
+You can pass **--ignore-gpu-blacklist** to Electron to bypass it:
+
 * command
 ```shell
-electron-mocha --require-main ignore-gpu-blacklist.js ./tests
+electron-mocha --main ignore-gpu-blacklist.js
 ```
 * ignore-gpu-blacklist.js
 ```js
@@ -118,18 +84,29 @@ app.commandLine.appendSwitch('ignore-gpu-blacklist');
 
 ###  Debugger Support
 
-Use the `--debug` or `--debug-brk` options to enable Electron's debugger. When using `--renderer` this will open the test window and open the dev-tools. Note that the window will close automatically when the tests have finished, therefore this option should be used in combination with `debugger` statements anywhere in your tests or code. Alternatively, you can use the `--interactive` option which will keep the window open after your tests have run (you can reload the window to run the tests again) -- this gives you the opportunity to set breakpoints using the dev-tools debugger.
+Use the `--inspect` or `--inspect-brk` options to enable Electron's debugger.
+When using `--renderer` this will show the test-runner window dev-tools, including
+a debugger (so you do not need to attach a node-inspector).
 
-To debug the main process (i.e., if you run your tests without the `--renderer` option), you will need to start an external debugger. For more details, see [Electron's documentation](http://electron.atom.io/docs/tutorial/debugging-main-process/).
+Note that the window will close automatically when the tests have finished,
+therefore this option should be used in combination with `debugger` statements
+anywhere in your tests or code.
+
+Alternatively, you can use the `--interactive` option which will keep the window
+open after your tests have run (you can reload the window to run the tests again),
+to give you the opportunity to set breakpoints using the dev-tools inspector.
+
+To debug the main process, you will need to
+[start a node-inspector separately](https://nodejs.org/en/docs/inspector/).
 
 ### Code Coverage
 
-You can use electron-mocha to collect code coverage data in Electron's main and renderer processes. To do this, you will need to instrument your code, run the tests on the instrumented code, and save the coverage stats after all tests have finished. You can [instrument your code on the fly](https://github.com/tropy/tropy/blob/master/test/support/coverage.js) using [istanbul-lib](https://github.com/istanbuljs/istanbuljs) or by running `istanbul instrument` [before you exectue your tests](https://github.com/MarshallOfSound/Google-Play-Music-Desktop-Player-UNOFFICIAL-/commit/1b2055b286f1f296c0d48dec714224c14acb3c34). Finally, use [nyc](https://github.com/istanbuljs/nyc/) to combine the results from all processes into a single coverage report.
+You can use `electron-mocha` to collect code coverage data in both Electron's
+main and renderer processes. To do this, you will need to instrument your code,
+run the tests on the instrumented code, and save the coverage stats after all
+tests have finished.
 
-Roadmap
--------
-- Implement a way to allow tests to run in either `main`/`renderer` from within
-the same test file for the purposes of integration testing.
+For examples, [see this thread](https://github.com/jprichardson/electron-mocha/issues/135#issuecomment-464160861)
 
 
 License
