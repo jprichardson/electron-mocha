@@ -1,4 +1,10 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
+8.0.0 / 2019-04-08
+------------------
+- Support all Mocha CLI options.
+- Use `yargs` instead of `commander` (like Mocha).
+- Update to Mocha 6.1.
+- Drop support for Node.js 6 and older.
 
 7.0.0 / 2019-04-01
 ------------------
