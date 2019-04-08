@@ -4,7 +4,7 @@ if (!opts.interactive) {
   require('./console')
 }
 
-const { Mocha, helpers } = require('../mocha')
+const { Mocha, helpers } = require('../lib/mocha')
 const { ipcRenderer: ipc } = require('electron')
 
 // Expose Mocha for browser tests
