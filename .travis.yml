@@ -21,7 +21,7 @@ before_install:
   - if [[ $TRAVIS_OS_NAME = "linux" ]]; then
       Xvfb :99 -ac -screen 0 1024x768x24 > /dev/null 2>&1 &
     fi
-  - if [[ $ELECTRON_VERSION ]]; then
+  - if [[ -n $ELECTRON_VERSION ]]; then
       npm install electron@$ELECTRON_VERSION
     fi
 install:
