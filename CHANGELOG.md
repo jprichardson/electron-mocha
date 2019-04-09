@@ -1,4 +1,8 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
+8.0.1 / 2019-04-09
+------------------
+- Electron 2.x backwards compatibility.
+
 8.0.0 / 2019-04-08
 ------------------
 - Support all Mocha CLI options.
