@@ -10,11 +10,13 @@ matrix:
     - node_js: stable
       os: osx
     - node_js: stable
+      env: ELECTRON_VERSION=beta
+    - node_js: stable
       env: ELECTRON_VERSION=4
     - node_js: 8
       env: ELECTRON_VERSION=3
-    - node_js: stable
-      env: ELECTRON_VERSION=beta
+    - node_js: 8
+      env: ELECTRON_VERSION=2
 before_install:
   - if [[ $TRAVIS_OS_NAME = "linux" ]]; then
       export DISPLAY=:99.0;
