@@ -7,12 +7,14 @@ node_js:
 matrix:
   fast_finish: true
   include:
-    - os: osx
-      node_js: 10
+    - node_js: stable
+      os: osx
+    - node_js: stable
       env: ELECTRON_VERSION=4
-    - os: osx
-      node_js: 8
+    - node_js: 8
       env: ELECTRON_VERSION=3
+    - node_js: stable
+      env: ELECTRON_VERSION=beta
 before_install:
   - if [[ $TRAVIS_OS_NAME = "linux" ]]; then
       export DISPLAY=:99.0;
