@@ -4,13 +4,9 @@ node_js:
   - 10
   - 8
   - 6
-env: DISPLAY=:99.0
 matrix:
   fast_finish: true
   include:
-    - os: osx
-      node_js: stable
-      env:
     - os: osx
       node_js: 10
       env: ELECTRON_VERSION=4
@@ -19,10 +15,11 @@ matrix:
       env: ELECTRON_VERSION=3
 before_install:
   - if [[ $TRAVIS_OS_NAME = "linux" ]]; then
+      export DISPLAY=:99.0;
       Xvfb :99 -ac -screen 0 1024x768x24 > /dev/null 2>&1 &
     fi
   - if [[ -n $ELECTRON_VERSION ]]; then
-      npm install electron@$ELECTRON_VERSION
+      npm install electron@$ELECTRON_VERSION;
     fi
 install:
   - npm install --no-progress
