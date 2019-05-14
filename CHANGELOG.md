@@ -1,4 +1,8 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
+8.0.2 / 2019-05-14
+------------------
+- Fix stdio from renderer process in Electron 5.
+
 8.0.1 / 2019-04-09
 ------------------
 - Electron 2.x backwards compatibility.
