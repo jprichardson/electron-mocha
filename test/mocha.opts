@@ -1,2 +1,3 @@
+--color
 --require test/support/require
 --require-main test/support/requireMain
