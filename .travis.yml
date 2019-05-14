@@ -11,7 +11,9 @@ matrix:
       os: osx
     - node_js: stable
       env: ELECTRON_VERSION=beta
-    - node_js: stable
+    - node_js: 12
+      env: ELECTRON_VERSION=5
+    - node_js: 10
       env: ELECTRON_VERSION=4
     - node_js: 8
       env: ELECTRON_VERSION=3
