@@ -23,7 +23,7 @@ const handleScripts = (scripts = []) => {
 
 const fail = error => {
   ipc.send('mocha-error', {
-    message: error.message || error,
+    message: error.message,
     stack: error.stack
   })
 }
@@ -32,15 +32,19 @@ process.on('SIGINT', () => console.log('sigint'))
 // Expose Mocha for browser tests
 window.mocha = Mocha
 
-window.addEventListener('error', fail)
-window.addEventListener('unhandledrejection', e => fail(e.reason))
-
 handleScripts(opts.script)
+
+let finished = false
 
 ipc.on('mocha-start', () => {
   try {
     helpers.runMocha(opts, files, (...args) => {
-      ipc.send('mocha-done', ...args)
+      // this callback runs twice for some reasons
+      // but we only want to send 'mocha-done' once
+      if (!finished) {
+        ipc.send('mocha-done', ...args)
+        finished = true
+      }
     })
   } catch (error) {
     fail(error)
