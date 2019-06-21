@@ -1,4 +1,8 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
+8.0.3 / 2019-06-21
+------------------
+- Let mocha handle uncaught errors in hooks.
+
 8.0.2 / 2019-05-14
 ------------------
 - Fix stdio from renderer process in Electron 5.
