@@ -62,8 +62,8 @@ running in a [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser)) pr
 On Linux, your `.travis.yml` will need an extra line of configuration to run your tests:
 
 ```yaml
-before_script:
-  - export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start
+services:
+  - xvfb
 ```
 
 #### WebGL Tests
