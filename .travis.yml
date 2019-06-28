@@ -1,9 +1,11 @@
 language: node_js
+dist: xenial
+services:
+  - xvfb
 node_js:
   - stable
   - 10
   - 8
-  - 6
 matrix:
   fast_finish: true
   include:
@@ -15,16 +17,9 @@ matrix:
       env: ELECTRON_VERSION=4
     - node_js: 8
       env: ELECTRON_VERSION=3
-    - node_js: 8
-      env: ELECTRON_VERSION=2
-  allow_failures:
-    - node_js: stable
-      env: ELECTRON_VERSION=beta
+    #- node_js: stable
+    # env: ELECTRON_VERSION=beta
 before_install:
-  - if [[ $TRAVIS_OS_NAME = "linux" ]]; then
-      export DISPLAY=:99.0;
-      Xvfb :99 -ac -screen 0 1024x768x24 > /dev/null 2>&1 &
-    fi
   - if [[ -n $ELECTRON_VERSION ]]; then
       npm install electron@$ELECTRON_VERSION;
     fi
