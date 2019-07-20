@@ -1,5 +1,5 @@
 const { ipcRenderer: ipc } = require('electron')
-const { files, ...opts } = window.__args__
+const opts = window.__args__
 
 if (!opts.interactive) {
   require('./console')
@@ -16,8 +16,8 @@ try {
   const { Mocha, helpers } = require('../lib/mocha')
 
   const handleScripts = (scripts = []) => {
-    for (let script of scripts) {
-      let tag = document.createElement('script')
+    for (const script of scripts) {
+      const tag = document.createElement('script')
       tag.src = script
       tag.async = false
       tag.onerror = () => {
@@ -36,7 +36,7 @@ try {
 
   ipc.on('mocha-start', () => {
     try {
-      helpers.runMocha(opts, files, (...args) => {
+      helpers.runMocha(opts, (...args) => {
         ipc.send('mocha-done', ...args)
       })
     } catch (e) {
