@@ -1,4 +1,8 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
+8.1.0 / 2019-07-20
+------------------
+- Update to mocha 6.2.x.
+
 8.0.3 / 2019-06-21
 ------------------
 - Let mocha handle uncaught errors in hooks.
