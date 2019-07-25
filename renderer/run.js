@@ -36,7 +36,7 @@ try {
 
   ipc.on('mocha-start', () => {
     try {
-      helpers.runMocha(opts, (...args) => {
+      helpers.runMocha({ ...opts }, (...args) => {
         ipc.send('mocha-done', ...args)
       })
     } catch (e) {
