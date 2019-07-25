@@ -1,4 +1,8 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
+8.1.1 / 2019-07-25
+------------------
+- Fix loading custom reporters in in Renderer.
+
 8.1.0 / 2019-07-20
 ------------------
 - Update to mocha 6.2.x.
