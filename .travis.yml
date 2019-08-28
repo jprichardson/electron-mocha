@@ -5,18 +5,17 @@ services:
 node_js:
   - stable
   - 10
-  - 8
 matrix:
   fast_finish: true
   include:
     - node_js: stable
       os: osx
     - node_js: 12
+      env: ELECTRON_VERSION=6
+    - node_js: 12
       env: ELECTRON_VERSION=5
     - node_js: 10
       env: ELECTRON_VERSION=4
-    - node_js: 8
-      env: ELECTRON_VERSION=3
     #- node_js: stable
     # env: ELECTRON_VERSION=beta
 before_install:
