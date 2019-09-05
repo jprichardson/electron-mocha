@@ -1,7 +1,12 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
+8.1.2 / 2019-09-05
+------------------
+- Fix bad exit code 0 on some Renderer errors.
+- Fix missing default spec path 'test'.
+
 8.1.1 / 2019-07-25
 ------------------
-- Fix loading custom reporters in in Renderer.
+- Fix loading custom reporters in Renderer.
 
 8.1.0 / 2019-07-20
 ------------------
