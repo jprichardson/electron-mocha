@@ -1,4 +1,8 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
+8.2.0 / 2020-01-09
+------------------
+- Update to mocha 7.x
+
 8.1.2 / 2019-09-05
 ------------------
 - Fix bad exit code 0 on some Renderer errors.
