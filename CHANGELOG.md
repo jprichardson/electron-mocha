@@ -1,4 +1,8 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
+8.2.1 / 2020-02-14
+------------------
+- Respect --full-trace option [#153](#153)
+
 8.2.0 / 2020-01-09
 ------------------
 - Update to mocha 7.x
@@ -265,6 +269,7 @@
 - initial release
 
 
+[#153]: https://github.com/jprichardson/electron-mocha/pull/153    "Respect the full-trace option to show stack traces on error"
 [#136]: https://github.com/jprichardson/electron-mocha/pull/136    "Enable loading multiple --require-main scripts"
 [#130]: https://github.com/jprichardson/electron-mocha/pull/130    "Natively compiled module sqlite3 crash"
 [#129]: https://github.com/jprichardson/electron-mocha/pull/129    "Disable power save app suspension"
