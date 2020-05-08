@@ -41,15 +41,15 @@
   "dependencies": {
     "ansi-colors": "^4.1.1",
     "electron-window": "^0.8.0",
-    "fs-extra": "^8.1.0",
+    "fs-extra": "^9.0.0",
     "log-symbols": "^3.0.0",
-    "mocha": "^7.0.1",
+    "mocha": "^7.1.2",
     "which": "^2.0.2",
-    "yargs": "^15.1.0"
+    "yargs": "^15.3.1"
   },
   "devDependencies": {
-    "electron": "^8.0.1",
-    "standard": "^14.3.1"
+    "electron": "^8.2.5",
+    "standard": "^14.3.3"
   },
   "standard": {
     "env": "mocha"
