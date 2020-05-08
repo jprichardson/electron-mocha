@@ -1,4 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
+8.2.2 / 2020-05-08
+------------------
+- Force exit from cleanup script [#155](#155)
+- Update to mocha 7.1.x
+
 8.2.1 / 2020-02-14
 ------------------
 - Respect --full-trace option [#153](#153)
@@ -269,6 +274,7 @@
 - initial release
 
 
+[#155]: https://github.com/jprichardson/electron-mocha/pull/155    "Explicitly exit from cleanup script"
 [#153]: https://github.com/jprichardson/electron-mocha/pull/153    "Respect the full-trace option to show stack traces on error"
 [#136]: https://github.com/jprichardson/electron-mocha/pull/136    "Enable loading multiple --require-main scripts"
 [#130]: https://github.com/jprichardson/electron-mocha/pull/130    "Natively compiled module sqlite3 crash"
