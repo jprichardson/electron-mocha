@@ -1,4 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
+9.0.0 / 2020-07-07
+------------------
+- Update to Mocha 8.x
+- Add support for Electron 10 beta
+
 8.2.2 / 2020-05-08
 ------------------
 - Force exit from cleanup script [#155](#155)
