@@ -4,12 +4,14 @@ services:
   - xvfb
 node_js:
   - stable
-  - 10
+  - 12
 matrix:
   fast_finish: true
   include:
     - node_js: stable
       os: osx
+    - node_js: 12
+      env: ELECTRON_VERSION=8
     - node_js: 12
       env: ELECTRON_VERSION=7
     - node_js: 12
@@ -18,8 +20,8 @@ matrix:
       env: ELECTRON_VERSION=5
     - node_js: 10
       env: ELECTRON_VERSION=4
-    #- node_js: stable
-    # env: ELECTRON_VERSION=beta
+    - node_js: stable
+      env: ELECTRON_VERSION=beta
 before_install:
   - if [[ -n $ELECTRON_VERSION ]]; then
       npm install electron@$ELECTRON_VERSION;
@@ -28,6 +30,10 @@ install:
   - npm install --no-progress
   - $(npm bin)/electron --version
 script:
-  - npm test
+  - if [[ $ELECTRON_VERSION = "beta" ]]; then
+      npm test;
+    else
+      npm test || true;
+    fi
 notifications:
   email: false
