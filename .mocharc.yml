@@ -1,0 +1,5 @@
+color: true
+require-main:
+  - test/support/requireMain
+require:
+  - test/support/require
