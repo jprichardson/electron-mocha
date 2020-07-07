@@ -4,8 +4,12 @@ const assert = require('assert')
 const remote = require('electron').remote
 
 describe('mocha.opts', () => {
-  it('--require modules are loaded', () => {
+  it('--require modules are loaded in renderer', () => {
     assert.strictEqual(true, window.required)
+  })
+
+  it('--require modules are not loaded in main', () => {
+    assert.strictEqual(undefined, remote.getGlobal('required'))
   })
 
   it('--script modules are loaded', () => {
