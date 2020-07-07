@@ -1,4 +1,8 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
+9.0.1 / 2020-07-07
+------------------
+- Fix --require handling in Mocha 8.x
+
 9.0.0 / 2020-07-07
 ------------------
 - Update to Mocha 8.x
