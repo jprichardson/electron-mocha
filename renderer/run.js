@@ -1,3 +1,5 @@
+require('electron-window').parseArgs()
+
 const { ipcRenderer: ipc } = require('electron')
 const opts = window.__args__
 
@@ -25,14 +27,14 @@ try {
           message: `script not found: ${script}`
         })
       }
-      document.head.appendChild(tag)
+      document.body.appendChild(tag)
     }
   }
 
   // Expose Mocha for browser tests
   window.mocha = Mocha
 
-  handleScripts(opts.script)
+  window.addEventListener('load', () => handleScripts(opts.script))
 
   ipc.on('mocha-start', () => {
     try {
