@@ -23,4 +23,8 @@ describe('mocha.opts', () => {
   it('--require-main modules are loaded before "ready"', () => {
     assert.strictEqual(true, remote.getGlobal('requiredMainBeforeReady'))
   })
+
+  it('--url custom page loaded', () => {
+    assert.strictEqual('Loaded via --url', document.title)
+  })
 })

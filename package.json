@@ -7,7 +7,7 @@
     "pretest": "standard",
     "test": "npm run test:main && npm run test:renderer",
     "test:main": "node bin/electron-mocha test/main",
-    "test:renderer": "node bin/electron-mocha --renderer --script test/support/preload.js test/renderer",
+    "test:renderer": "node bin/electron-mocha --renderer --script test/support/preload.js --url test/support/index.html test/renderer",
     "mocha": "node bin/electron-mocha",
     "prepublishOnly": "npm test"
   },
