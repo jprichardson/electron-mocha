@@ -1,4 +1,8 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
+9.1.0 / 2020-08-15
+------------------
+- Add --url option to load custom URLs or file paths. [#161](#161)
+
 9.0.1 / 2020-07-07
 ------------------
 - Fix --require handling in Mocha 8.x
@@ -283,6 +287,7 @@
 - initial release
 
 
+[#161]: https://github.com/jprichardson/electron-mocha/pull/161    ":feature: Allow custom index.html"
 [#155]: https://github.com/jprichardson/electron-mocha/pull/155    "Explicitly exit from cleanup script"
 [#153]: https://github.com/jprichardson/electron-mocha/pull/153    "Respect the full-trace option to show stack traces on error"
 [#136]: https://github.com/jprichardson/electron-mocha/pull/136    "Enable loading multiple --require-main scripts"
