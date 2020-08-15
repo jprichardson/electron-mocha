@@ -40,6 +40,7 @@ with these additional options:
     --require-main, --main  Require module in main process               [array]
     --script, --preload     Load module in renderer via script tag       [array]
     --interactive           Show renderer tests in persistent window   [boolean]
+    --url, --index          Load custom URL in renderer                 [string]
 
 For the full list of available options, see `electron-mocha --help`.
 
