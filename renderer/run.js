@@ -3,6 +3,10 @@ require('electron-window').parseArgs()
 const { ipcRenderer: ipc } = require('electron')
 const opts = window.__args__
 
+if(opts.preload){
+	require(opts.preload)
+}
+
 if (!opts.interactive) {
   require('./console')
 }
