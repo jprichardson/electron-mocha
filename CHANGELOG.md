@@ -1,4 +1,8 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
+9.2.0 / 2020-09-29
+------------------
+- Add proper --preload option for Renderer tests. [#164](#164)
+
 9.1.0 / 2020-08-15
 ------------------
 - Add --url option to load custom URLs or file paths. [#161](#161)
@@ -287,6 +291,7 @@
 - initial release
 
 
+[#164]: https://github.com/jprichardson/electron-mocha/pull/164    "Corrected --preload behavior"
 [#161]: https://github.com/jprichardson/electron-mocha/pull/161    ":feature: Allow custom index.html"
 [#155]: https://github.com/jprichardson/electron-mocha/pull/155    "Explicitly exit from cleanup script"
 [#153]: https://github.com/jprichardson/electron-mocha/pull/153    "Respect the full-trace option to show stack traces on error"
