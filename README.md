@@ -37,10 +37,11 @@ and not the app directory e.g. `/Applications/Electron.app/Contents/MacOS/Electr
 with these additional options:
 
     --renderer              Run tests in renderer process              [boolean]
-    --require-main, --main  Require module in main process               [array]
-    --script, --preload     Load module in renderer via script tag       [array]
+    --require-main, --main  Require module in main process             [array]
+    --script                Load module in renderer via script tag     [array]
     --interactive           Show renderer tests in persistent window   [boolean]
-    --url, --index          Load custom URL in renderer                 [string]
+    --url, --index          Load custom URL in renderer                [string]
+    --preload               Load module during renderer preload        [string]
 
 For the full list of available options, see `electron-mocha --help`.
 
