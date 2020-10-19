@@ -1,4 +1,8 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
+9.3.0 / 2020-10-19
+------------------
+- Update to Mocha 8.2.x
+
 9.2.0 / 2020-09-29
 ------------------
 - Add proper --preload option for Renderer tests. [#164](#164)
