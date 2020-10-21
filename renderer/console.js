@@ -1,10 +1,13 @@
-const { remote } = require('electron')
-const remoteConsole = remote.require('console')
+const { ipcRenderer: ipc } = require('electron')
 
-console.log = (...args) => {
-  remoteConsole.log(...args)
-}
+const { hasOwnProperty } = Object.prototype
 
-console.dir = (...args) => {
-  remoteConsole.dir(...args)
+const fakeConsole = {}
+for (const k in console) {
+  if (hasOwnProperty.call(console, k) && k !== 'assert') {
+    fakeConsole[k] = (...args) => ipc.send('console-call', k, args)
+  }
 }
+global.__defineGetter__('console', function () {
+  return fakeConsole
+})
