@@ -33,9 +33,9 @@ install:
   - $(npm bin)/electron --version
 script:
   - if [[ $ELECTRON_VERSION = "beta" ]]; then
-      npm test;
-    else
       npm test || true;
+    else
+      npm test;
     fi
 notifications:
   email: false
