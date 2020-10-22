@@ -48,8 +48,8 @@
     "yargs": "^16.1.0"
   },
   "devDependencies": {
-    "electron": "^9.3.2",
-    "standard": "^14.3.4"
+    "electron": "^10.1.4",
+    "standard": "^15.0.0"
   },
   "standard": {
     "env": "mocha"
