@@ -1,4 +1,9 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
+9.3.1 / 2020-10-22
+------------------
+- Stop using `remote` module for console calls. [#166](#166)
+- Add --warnings option to print renderer warnings to console.
+
 9.3.0 / 2020-10-19
 ------------------
 - Update to Mocha 8.2.x
@@ -295,6 +300,7 @@
 - initial release
 
 
+[#166]: https://github.com/jprichardson/electron-mocha/pull/166    "refactor: do not use `remote` module for console calls"
 [#164]: https://github.com/jprichardson/electron-mocha/pull/164    "Corrected --preload behavior"
 [#161]: https://github.com/jprichardson/electron-mocha/pull/161    ":feature: Allow custom index.html"
 [#155]: https://github.com/jprichardson/electron-mocha/pull/155    "Explicitly exit from cleanup script"
