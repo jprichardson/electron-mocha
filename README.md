@@ -42,6 +42,7 @@ with these additional options:
     --interactive           Show renderer tests in persistent window   [boolean]
     --url, --index          Load custom URL in renderer                [string]
     --preload               Load module during renderer preload        [string]
+    -W, --warnings          Print renderer warnings to console         [boolean]
 
 For the full list of available options, see `electron-mocha --help`.
 
