@@ -40,9 +40,9 @@ try {
 
   window.addEventListener('load', () => handleScripts(opts.script))
 
-  ipc.on('mocha-start', () => {
+  ipc.on('mocha-start', async () => {
     try {
-      helpers.runMocha({ ...opts }, (...args) => {
+      await helpers.runMocha({ ...opts }, (...args) => {
         ipc.send('mocha-done', ...args)
       })
     } catch (e) {
