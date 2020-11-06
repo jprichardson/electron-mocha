@@ -1,4 +1,6 @@
-test/
+.eslintrc
+.mocharc.yml
 .npmignore
 .travis.yml
 appveyor.yml
+test/
