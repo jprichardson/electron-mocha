@@ -43,13 +43,13 @@
     "electron-window": "^0.8.0",
     "fs-extra": "^9.0.1",
     "log-symbols": "^4.0.0",
-    "mocha": "^8.2.0",
+    "mocha": "^8.2.1",
     "which": "^2.0.2",
     "yargs": "^16.1.0"
   },
   "devDependencies": {
-    "electron": "^10.1.4",
-    "standard": "^15.0.0"
+    "electron": "^10.1.5",
+    "standard": "^15.0.1"
   },
   "standard": {
     "env": "mocha"
