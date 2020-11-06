@@ -1,4 +1,8 @@
 <!-- Github links generated with: https://github.com/jprichardson/issue-links -->
+9.3.2 / 2020-20-06
+------------------
+- Fix renderer error handling. See [#170](#170)
+
 9.3.1 / 2020-10-22
 ------------------
 - Stop using `remote` module for console calls. [#166](#166)
@@ -300,6 +304,7 @@
 - initial release
 
 
+[#170]: https://github.com/jprichardson/electron-mocha/pull/170    "Fix uncaught promise rejection"
 [#166]: https://github.com/jprichardson/electron-mocha/pull/166    "refactor: do not use `remote` module for console calls"
 [#164]: https://github.com/jprichardson/electron-mocha/pull/164    "Corrected --preload behavior"
 [#161]: https://github.com/jprichardson/electron-mocha/pull/161    ":feature: Allow custom index.html"
