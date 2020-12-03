@@ -1,4 +1,7 @@
-<!-- Github links generated with: https://github.com/jprichardson/issue-links -->
+9.3.3 / 2020-03-12
+------------------
+- Add console.assert support for renderer tests.
+
 9.3.2 / 2020-20-06
 ------------------
 - Fix renderer error handling. See [#170](#170)
@@ -14,7 +17,7 @@
 
 9.2.0 / 2020-09-29
 ------------------
-- Add proper --preload option for Renderer tests. [#164](#164)
+- Add proper --preload option for renderer tests. [#164](#164)
 
 9.1.0 / 2020-08-15
 ------------------
