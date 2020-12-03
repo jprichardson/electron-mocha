@@ -45,11 +45,11 @@
     "log-symbols": "^4.0.0",
     "mocha": "^8.2.1",
     "which": "^2.0.2",
-    "yargs": "^16.1.0"
+    "yargs": "^16.1.1"
   },
   "devDependencies": {
-    "electron": "^10.1.5",
-    "standard": "^15.0.1"
+    "electron": "^11.0.3",
+    "standard": "^16.0.3"
   },
   "standard": {
     "env": "mocha"
