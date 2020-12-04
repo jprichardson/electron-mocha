@@ -3,3 +3,4 @@ require-main:
   - test/support/requireMain
 require:
   - test/support/require
+window-config-file: test/support/window.config.json
