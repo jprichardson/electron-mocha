@@ -1,7 +1,7 @@
 {
   "renderer": true,
   "color": true,
-  "window-config-file": "test/support/window.config.json",
+  "window-config": "test/support/window.config.json",
   "script": [
     "test/support/preload.js"
   ],
