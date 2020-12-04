@@ -1,0 +1,9 @@
+{
+  "renderer": true,
+  "color": true,
+  "window-config-file": "test/support/window.config.json",
+  "script": [
+    "test/support/preload.js"
+  ],
+  "url": "test/support/index.html"
+}
