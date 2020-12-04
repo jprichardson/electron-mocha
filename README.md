@@ -7,8 +7,7 @@ electron-mocha
 Mocha testing in [Electron](https://electronjs.org). This project has
 two main value propositions:
 
-1. You can now easily test any JavaScript app in a real browser (Chromium)
-without hassling with PhantomJS or Webdriver.
+1. You can now easily test any JavaScript app in a real browser environment.
 2. You can now easily test your Electron apps!
 
 
@@ -45,7 +44,9 @@ with these additional options:
     --window-config-file    Supply custom electron window options      [string]
     -W, --warnings          Print renderer warnings to console         [boolean]
 
-`window-config-file` must be a javascript file that exports an options object. Check out [electron docs](https://www.electronjs.org/docs/api/browser-window#new-browserwindowoptions) for the list of available options.
+The `window-config-file` must be a JSON file or a JavaScript module that exports the
+options object. For more information, check out the
+[Electron docs](https://www.electronjs.org/docs/api/browser-window#new-browserwindowoptions).
 
 For the full list of available options, see `electron-mocha --help`.
 
