@@ -1,3 +1,9 @@
+10.0.0 / 2020-04-12
+------------------
+- Add --window-config option to configure renderer window. See [#174](#174)
+- Disable remote module in renderer test by default. --window-config can
+  be used to enable it.
+
 9.3.3 / 2020-03-12
 ------------------
 - Add console.assert support for renderer tests.
@@ -307,6 +313,7 @@
 - initial release
 
 
+[#174]: https://github.com/jprichardson/electron-mocha/pull/174    "Add `window-config-file` option"
 [#170]: https://github.com/jprichardson/electron-mocha/pull/170    "Fix uncaught promise rejection"
 [#166]: https://github.com/jprichardson/electron-mocha/pull/166    "refactor: do not use `remote` module for console calls"
 [#164]: https://github.com/jprichardson/electron-mocha/pull/164    "Corrected --preload behavior"
