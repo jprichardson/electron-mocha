@@ -42,7 +42,10 @@ with these additional options:
     --interactive           Show renderer tests in persistent window   [boolean]
     --url, --index          Load custom URL in renderer                [string]
     --preload               Load module during renderer preload        [string]
+    --window-config-file    Supply custom electron window options      [string]
     -W, --warnings          Print renderer warnings to console         [boolean]
+
+`window-config-file` must be a javascript file that exports an options object. Check out [electron docs](https://www.electronjs.org/docs/api/browser-window#new-browserwindowoptions) for the list of available options.
 
 For the full list of available options, see `electron-mocha --help`.
 
