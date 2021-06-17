@@ -1,3 +1,8 @@
+10.1.0 / 2021-06-17
+------------------
+- Update to Electron 13
+- Update Mocha and pin to 8.x (pre-ESM)
+
 10.0.0 / 2020-04-12
 ------------------
 - Add --window-config option to configure renderer window. See [#174](#174)
