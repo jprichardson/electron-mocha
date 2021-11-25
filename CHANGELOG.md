@@ -1,3 +1,8 @@
+11.0.0 / 2021-11-25
+------------------
+- Update to Electron 16
+- Update to Mocha 9.x
+
 10.1.0 / 2021-06-17
 ------------------
 - Update to Electron 13
