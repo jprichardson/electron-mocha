@@ -14,10 +14,10 @@
   "mocha": {
     "color": true,
     "require-main": [
-      "test/support/requireMain"
+      "test/support/requireMain.js"
     ],
     "require": [
-      "test/support/require"
+      "test/support/require.js"
     ]
   },
   "bin": {
@@ -51,8 +51,7 @@
     "ansi-colors": "^4.1.1",
     "electron-window": "^0.8.0",
     "fs-extra": "^10.0.0",
-    "log-symbols": "^4.1.0",
-    "mocha": "^8.4.0",
+    "mocha": "^9.1.1",
     "which": "^2.0.2",
     "yargs": "^16.2.0"
   },
