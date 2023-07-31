@@ -46,7 +46,11 @@ try {
         ipc.send('mocha-done', ...args)
       })
     } catch (e) {
-      fail(e)
+      if (opts.interactive) {
+        console.error(e)
+      } else {
+        fail(e)
+      }
     }
   })
 
