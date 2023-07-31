@@ -1,3 +1,11 @@
+12.0.1 / 2023-07-31
+------------------
+- Do not close window on errors in interactive mode
+
+12.0.0
+------------------
+- Update to Mocha 10.x
+
 11.0.1 / 2021-12-01
 ------------------
 - Fix legacy require
