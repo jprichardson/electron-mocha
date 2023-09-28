@@ -7,6 +7,10 @@ describe('mocha.opts', () => {
     assert.strictEqual(true, global.required)
   })
 
+  it('--require ES modules are loaded', () => {
+    assert.strictEqual(true, global.requiredES)
+  })
+
   it('--require-main modules are loaded', () => {
     assert.strictEqual(true, global.requiredMain)
   })
