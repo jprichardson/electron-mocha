@@ -6,7 +6,7 @@
   "scripts": {
     "pretest": "standard",
     "test": "npm run test:main && npm run test:renderer",
-    "test:main": "node bin/electron-mocha --require test/support/requireES.mjs test/main",
+    "test:main": "node bin/electron-mocha --config .mocharc.main.json test/main",
     "test:renderer": "node bin/electron-mocha --config .mocharc.renderer.json test/renderer",
     "mocha": "node bin/electron-mocha",
     "prepublishOnly": "npm test"

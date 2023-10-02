@@ -1,0 +1,7 @@
+{
+  "color": true,
+  "require": [
+    "test/support/requireES.mjs"
+  ]
+}
+
