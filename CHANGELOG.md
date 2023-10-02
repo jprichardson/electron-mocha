@@ -1,3 +1,7 @@
+12.1.0 / 2023-10-02
+------------------
+- Load ESM requires in main
+
 12.0.1 / 2023-07-31
 ------------------
 - Do not close window on errors in interactive mode
