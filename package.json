@@ -51,11 +51,11 @@
     "ansi-colors": "^4.1.1",
     "electron-window": "^0.8.0",
     "mocha": "^10.2.0",
-    "which": "^3.0.0",
+    "which": "^4.0.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "electron": "^25.3.2",
+    "electron": "^28.0.0",
     "standard": "^17.1.0"
   },
   "standard": {
