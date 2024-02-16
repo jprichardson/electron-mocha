@@ -64,6 +64,19 @@ This runs all tests in your `test` directory in a
 This means that you have access to the entirety of the DOM, web storage, etc. This is because it's actually
 running in a [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser)) process.
 
+### Using on Github Actions
+
+On Github Actions, your job can rely on xvfb headless service to run your tests.
+
+(example with [setup-xvfb](https://github.com/marketplace/actions/setup-xvfb)):
+```yaml
+    - name: Run headless test
+      uses: coactions/setup-xvfb@v1
+      with:
+        run: npm run ci-test
+```
+
+
 ### Using on Travis CI
 
 On Linux, your `.travis.yml` will need an extra line of configuration to run your tests:
