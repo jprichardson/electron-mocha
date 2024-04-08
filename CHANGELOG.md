@@ -1,3 +1,9 @@
+12.3.0 / 2024-04-08
+-------------------
+- Added --show-window option for renderer tests
+- Update which and mocha dependencies
+- Support Electron 29
+
 12.2.0 / 2023-12-11
 -------------------
 - Support Electron 28
