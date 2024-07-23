@@ -50,7 +50,7 @@
   "dependencies": {
     "ansi-colors": "^4.1.1",
     "electron-window": "^0.8.0",
-    "mocha": "=10.4.0",
+    "mocha": "^10.7.0",
     "which": "^4.0.0",
     "yargs": "^17.7.2"
   },
