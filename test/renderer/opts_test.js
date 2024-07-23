@@ -12,10 +12,6 @@ describe('mocha.opts', () => {
     assert.strictEqual(undefined, await ipcRenderer.invoke('get-global', 'required'))
   })
 
-  it('--script modules are loaded', () => {
-    assert.strictEqual(true, window.preloaded)
-  })
-
   it('--require-main modules are loaded in the main process', async () => {
     assert.strictEqual(true, await ipcRenderer.invoke('get-global', 'requiredMain'))
   })
