@@ -1,3 +1,9 @@
+13.0.0 / 2024-07-23
+-------------------
+- Updated to latest Mocha.js
+- Enable isolated context by default in renderer tests
+- Allow importing native ESM in renderer tests
+
 12.3.0 / 2024-04-08
 -------------------
 - Added --show-window option for renderer tests
