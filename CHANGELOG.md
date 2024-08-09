@@ -1,3 +1,40 @@
+13.0.0 / 2024-07-23
+-------------------
+- Updated to latest Mocha.js
+- Enable isolated context by default in renderer tests
+- Allow importing native ESM in renderer tests
+
+12.3.0 / 2024-04-08
+-------------------
+- Added --show-window option for renderer tests
+- Update which and mocha dependencies
+- Support Electron 29
+
+12.2.0 / 2023-12-11
+-------------------
+- Support Electron 28
+
+12.1.0 / 2023-10-02
+-------------------
+- Load ESM requires in main
+
+12.0.1 / 2023-07-31
+-------------------
+- Do not close window on errors in interactive mode
+
+12.0.0
+-------------------
+- Update to Mocha 10.x
+
+11.0.1 / 2021-12-01
+-------------------
+- Fix legacy require
+
+11.0.0 / 2021-11-25
+------------------
+- Update to Electron 16
+- Update to Mocha 9.x
+
 10.1.0 / 2021-06-17
 ------------------
 - Update to Electron 13

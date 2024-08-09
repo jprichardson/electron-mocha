@@ -1,12 +1,12 @@
 {
   "name": "electron-mocha",
-  "version": "10.1.0",
+  "version": "13.0.0",
   "description": "Mocha tests in Electron.",
   "main": "lib/main.js",
   "scripts": {
     "pretest": "standard",
     "test": "npm run test:main && npm run test:renderer",
-    "test:main": "node bin/electron-mocha test/main",
+    "test:main": "node bin/electron-mocha --config .mocharc.main.json test/main",
     "test:renderer": "node bin/electron-mocha --config .mocharc.renderer.json test/renderer",
     "mocha": "node bin/electron-mocha",
     "prepublishOnly": "npm test"
@@ -14,17 +14,17 @@
   "mocha": {
     "color": true,
     "require-main": [
-      "test/support/requireMain"
+      "test/support/requireMain.js"
     ],
     "require": [
-      "test/support/require"
+      "test/support/require.js"
     ]
   },
   "bin": {
-    "electron-mocha": "./bin/electron-mocha"
+    "electron-mocha": "bin/electron-mocha"
   },
   "engines": {
-    "node": ">= 7.0.0"
+    "node": ">= 16.0.0"
   },
   "repository": {
     "type": "git",
@@ -50,17 +50,17 @@
   "dependencies": {
     "ansi-colors": "^4.1.1",
     "electron-window": "^0.8.0",
-    "fs-extra": "^10.0.0",
-    "log-symbols": "^4.1.0",
-    "mocha": "^8.4.0",
-    "which": "^2.0.2",
-    "yargs": "^16.2.0"
+    "mocha": "^10.7.0",
+    "which": "^4.0.0",
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "electron": "^13.1.2",
-    "standard": "^16.0.3"
+    "electron": "^31.1.0",
+    "standard": "^17.1.0"
   },
   "standard": {
-    "env": "mocha"
+    "envs": [
+      "mocha"
+    ]
   }
 }

@@ -4,18 +4,18 @@ services:
   - xvfb
 node_js:
   - stable
-  - 14
+  - 16
 matrix:
   fast_finish: true
   include:
     - node_js: stable
       os: osx
+    - node_js: 16
+      env: ELECTRON_VERSION=15
+    - node_js: 16
+      env: ELECTRON_VERSION=14
     - node_js: 14
-      env: ELECTRON_VERSION=12
-    - node_js: 14
-      env: ELECTRON_VERSION=11
-    - node_js: 14
-      env: ELECTRON_VERSION=10
+      env: ELECTRON_VERSION=13
     - node_js: stable
       env: ELECTRON_VERSION=beta
 before_install:

@@ -1,14 +1,12 @@
 electron-mocha
 ==============
-[![Build Status](https://travis-ci.org/jprichardson/electron-mocha.svg?branch=master)](https://travis-ci.org/jprichardson/electron-mocha)
-[![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/jprichardson/electron-mocha?branch=master&svg=true)](https://ci.appveyor.com/project/jprichardson/electron-mocha)
 [![npm](https://img.shields.io/npm/v/electron-mocha.svg?maxAge=2592000)](https://www.npmjs.com/package/electron-mocha)
 
 Mocha testing in [Electron](https://electronjs.org). This project has
 two main value propositions:
 
-1. You can now easily test any JavaScript app in a real browser environment.
-2. You can now easily test your Electron apps!
+1. You can now test any JavaScript app in a real browser environment.
+2. You can now test your Electron apps!
 
 
 ## Install
@@ -43,6 +41,7 @@ with these additional options:
     --preload               Load module during renderer preload        [string]
     --window-config         Supply custom Electron window options      [string]
     -W, --warnings          Print renderer warnings to console         [boolean]
+    --show-window           Show the window during tests               [boolean
 
 The `window-config` switch must point to a JSON file or to a JavaScript module that exports
 an options object. For more information, check out the
@@ -64,19 +63,14 @@ This runs all tests in your `test` directory in a
 This means that you have access to the entirety of the DOM, web storage, etc. This is because it's actually
 running in a [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser)) process.
 
-### Using on Travis CI
+### Using for CI
 
-On Linux, your `.travis.yml` will need an extra line of configuration to run your tests:
-
-```yaml
-services:
-  - xvfb
-```
+In most Linux CI environments you'll need to use XFVB to run your tests. Either start the appropriate XVFB service or use `xvfb-run`.
 
 #### WebGL Tests
 
 If you are writing tests for WebGL programs and you cannot get a WebGL contexts,
-this may be because Travis doesn't have GPU support.
+this may be because the environment doesn't have GPU support.
 You can pass **--ignore-gpu-blacklist** to Electron to bypass it:
 
 * command
