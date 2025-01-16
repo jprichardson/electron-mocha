@@ -1,3 +1,8 @@
+13.1.0 / 2025-01-16
+-------------------
+- Updated to latest Mocha.js
+- Fallback to legacy requires if context isolation is disabled in renderer
+
 13.0.0 / 2024-07-23
 -------------------
 - Updated to latest Mocha.js
