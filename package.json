@@ -50,12 +50,12 @@
   "dependencies": {
     "ansi-colors": "^4.1.1",
     "electron-window": "^0.8.0",
-    "mocha": "^10.7.0",
-    "which": "^4.0.0",
+    "mocha": "^11.0.1",
+    "which": "^5.0.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "electron": "^31.1.0",
+    "electron": "^34.0.0",
     "standard": "^17.1.0"
   },
   "standard": {
