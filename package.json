@@ -4,7 +4,7 @@
   "description": "Mocha tests in Electron.",
   "main": "lib/main.js",
   "scripts": {
-    "pretest": "standard",
+    "pretest": "eslint *.js bin/electron-mocha.js lib renderer test",
     "test": "npm run test:main && npm run test:renderer",
     "test:main": "node bin/electron-mocha --config .mocharc.main.json test/main",
     "test:renderer": "node bin/electron-mocha --config .mocharc.renderer.json test/renderer",
@@ -56,7 +56,8 @@
   },
   "devDependencies": {
     "electron": "^38.1.2",
-    "standard": "^17.1.0"
+    "eslint": "^9.39.1",
+    "neostandard": "^0.12.2"
   },
   "standard": {
     "envs": [
