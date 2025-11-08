@@ -21,7 +21,7 @@ if (!electron) {
 
 run(electron)
 
-function resolve(module, resolver) {
+function resolve (module, resolver) {
   try {
     return (resolver || require)(module)
   } catch (_) {
@@ -29,13 +29,13 @@ function resolve(module, resolver) {
   }
 }
 
-function run(electron) {
-  let args = [
+function run (electron) {
+  const args = [
     join(__dirname, '../lib/main.js'),
     ...process.argv.slice(2)
   ]
 
-  let child = spawn(electron, args, { shell: process.platform === 'win32' })
+  const child = spawn(electron, args, { shell: process.platform === 'win32' })
 
   // stdio 'inherit' not work reliably in Renderer!
   child.stdout.pipe(process.stdout)
