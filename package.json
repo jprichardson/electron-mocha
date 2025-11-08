@@ -21,7 +21,7 @@
     ]
   },
   "bin": {
-    "electron-mocha": "bin/electron-mocha"
+    "electron-mocha": "bin/electron-mocha.js"
   },
   "engines": {
     "node": ">= 16.0.0"
